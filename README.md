@@ -28,6 +28,45 @@ This copies the `.vimrc` file into your home directory and makes a symlink back 
 
 And it's the same for the `.inputrc` in the input folder and and `.gitconfig` file in the git folder.
 
+# Vim setup
+There is a lot of customisation. Make sure you update your vim to version 8:
+```
+brew install macvim --with-override-system-vim
+```
+Then close your terminal and reopen it and verify that it is indeed version 8 or greater with the command
+```
+vim --version | grep IMproved
+```
+The output should be something like:
+```
+VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Apr 20 2017 20:02:24)
+```
+You will also need to install vundle:
+```
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+Now open up a vim file and type:
+```
+:PluginInstall
+```
+It should open a panel and start downloading the plugins.
+Then you need to install YouCompleteMe:
+```
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer
+```
+If that throws an error, you may be missing cmake, so install it with
+```
+brew install cmake
+```
+
+You will probably also need to install a font that has the powerline special characters.
+My preferred font is Meslo LG M which I downloaded from
+https://github.com/powerline/fonts/tree/master/Meslo%20Slashed
+
+You can then update your font used by your terminal.
+
+
 # Usage
 Now you can edit the `.bash_profile`, `.vimrc`, `.inputrc` and `.gitconfig` files directly in your home
 directory and they will get updated in the git repo.
