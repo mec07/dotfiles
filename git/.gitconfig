@@ -1,0 +1,12 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+name = Marc Coury
+email = marccoury@ingresso.co.uk
+[pull]
+	rebase = true
+[merge]
+	tool = vimdiff
+	conflictsyle = diff3
+[mergetool]
+	prompt = false
