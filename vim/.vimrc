@@ -118,6 +118,8 @@ nnoremap <C-H> <C-W><C-H>
 " Powerline config:
 " To get all the symbols working I had to install Source Code Pro for
 " Powerline from here: https://github.com/powerline/fonts/tree/master/SourceCodePro
+" In the end though I preferred this font for powerline, Meslo LG M which I
+" downloaded from https://github.com/powerline/fonts/tree/master/Meslo%20Slashed
 " and set that to be my font in iterm2
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
