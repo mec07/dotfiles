@@ -1,6 +1,7 @@
 export PATH=$PATH:/Users/mcoury/bin
 
 alias ls='ls -a'
+alias ll='ls -l'
 
 # python virtual environment
 #alias venv='source ./venv/bin/activate'

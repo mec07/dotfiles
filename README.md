@@ -1,6 +1,12 @@
 # dotfiles
 Dotfile management
 
+# Requirements
+You need to use stow. I think it usually comes with Linux but it doesn't come with Mac OSX, so install it with:
+```
+brew install stow
+```
+
 # Setup
 To use these dotfiles, make a backup of your current dotfiles, e.g.
 ```
