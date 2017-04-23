@@ -29,7 +29,11 @@ This copies the `.vimrc` file into your home directory and makes a symlink back 
 And it's the same for the `.inputrc` in the input folder and and `.gitconfig` file in the git folder.
 
 # Vim setup
-There is a lot of customisation. Make sure you update your vim to version 8:
+There is a lot of customisation. A lot of it comes from a good tutorial on setting up your vim environment for coding:
+https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
+
+To make the vim setup work as I have follow these instructions.
+Make sure you update your vim to version 8:
 ```
 brew install macvim --with-override-system-vim
 ```
