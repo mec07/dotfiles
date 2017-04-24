@@ -1,6 +1,5 @@
 set cursorline
 
-
 set clipboard=unnamed
 
 set number
@@ -133,6 +132,7 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
+    \ set cc=80 |
 
 " Fullstack autoindents
 au BufNewFile,BufRead *.js,*.html,*.css
