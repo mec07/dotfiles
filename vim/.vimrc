@@ -123,6 +123,9 @@ nnoremap <C-H> <C-W><C-H>
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
 
+" Auto open NERDTreeTabs on startup
+let g:nerdtree_tabs_open_on_console_startup=1
+
 " Python autoindents
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -136,6 +139,11 @@ au BufNewFile,BufRead *.py
 
 " Fullstack autoindents
 au BufNewFile,BufRead *.js,*.html,*.css
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=120 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+
