@@ -100,10 +100,6 @@ let g:ycm_collect_identifiers_from_tag_files = 1
 let g:ycm_autoclose_preview_window_after_completion=1
 set completeopt=longest,menu
 
-
-" turn back on filetype
-filetype plugin indent on
-
 " Python highlighting
 let python_highlight_all=1
 syntax on
@@ -123,8 +119,10 @@ nnoremap <C-H> <C-W><C-H>
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
 
+" NERDTreeTabs config:
 " Auto open NERDTreeTabs on startup
 let g:nerdtree_tabs_open_on_console_startup=1
+command NT NERDTreeTabsToggle
 
 " Python autoindents
 au BufNewFile,BufRead *.py
