@@ -2,6 +2,9 @@ set cursorline
 
 set clipboard=unnamed
 
+" enable mouse inside vim
+set mouse=a
+
 set number
 
 set iskeyword-=_
@@ -35,6 +38,19 @@ highlight OverlengthErr ctermbg=red ctermfg=black
 
 " Clear last search
 command Clear let @/ = ""
+
+" Enable copying by highlighting with mouse
+command Copy set nonu |
+  \ set mouse= |
+  \ NT
+
+command Uncopy set nu |
+  \ set mouse=a |
+  \ NT
+
+" Maintain undo history between sessions
+set undofile
+set undodir=~/.vim/undodir
 
 " Enable folding
 set foldmethod=indent
@@ -75,13 +91,15 @@ Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Plugin 'tmhedberg/SimpylFold'
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'jnurmine/Zenburn'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Fuzzy file finder
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 
 " All of your Plugins must be added before the following line
@@ -93,12 +111,12 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""
 
 " YouCompleteMe customisations:
-let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_global_ycm_extra_conf = '/home/li/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf=0
-let g:ycm_collect_identifiers_from_tag_files = 1
-let g:ycm_autoclose_preview_window_after_completion=1
-set completeopt=longest,menu
+" let g:ycm_seed_identifiers_with_syntax=1
+" let g:ycm_global_ycm_extra_conf = '/home/li/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+" let g:ycm_confirm_extra_conf=0
+" let g:ycm_collect_identifiers_from_tag_files = 1
+" let g:ycm_autoclose_preview_window_after_completion=1
+" set completeopt=longest,menu
 
 " Python highlighting
 let python_highlight_all=1
@@ -137,9 +155,9 @@ au BufNewFile,BufRead *.py
 
 " Fullstack autoindents
 au BufNewFile,BufRead *.js,*.html,*.css
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
     \ set textwidth=120 |
     \ set expandtab |
     \ set autoindent |

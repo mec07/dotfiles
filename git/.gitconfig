@@ -10,3 +10,9 @@ email = marccoury@ingresso.co.uk
 	conflictsyle = diff3
 [mergetool]
 	prompt = false
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
