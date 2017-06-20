@@ -1,0 +1,71 @@
+[general]
+#accounts = work,liveerrors,deverrors
+accounts = work,liveerrors
+maxsyncaccounts = 3
+pythonfile = ~/.mutt/offlineimap.py
+auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
+
+[Account work]
+localrepository = work-local
+remoterepository = work-remote
+autorefresh = 1
+presynchook = ~/.mutt/offlineimap-presync.sh
+postsynchook = ~/.mutt/offlineimap-postsync.sh
+
+[Repository work-local]
+type = Maildir
+localfolders = ~/Maildir/work
+
+[Repository work-remote]
+type = IMAP
+remotehost = outlook.office365.com
+remoteuser = marc.coury@accesso.com
+remotepasseval = keyring.get_password("outlook.office365.com", "marc.coury@accesso.com")
+sslcacertfile = /etc/ssl/cert.pem
+folderfilter = lambda foldername: foldername not in ["Contacts", "Calendar"]
+
+[Account liveerrors]
+localrepository = liveerrors-local
+remoterepository = liveerrors-remote
+autorefresh = 1
+postsynchook = ~/.mutt/offlineimap-postsync.sh
+
+[Repository liveerrors-local]
+type = Maildir
+localfolders = ~/Maildir/liveerrors
+sep = /
+
+[Repository liveerrors-remote]
+type = IMAP
+remotehost = imap.ingresso.co.uk
+remoteuser = liveerrors
+remotepasseval = keyring.get_password("imap.ingresso.co.uk", "liveerrors")
+sslcacertfile = /etc/ssl/cert.pem
+folderfilter = lambda foldername: foldername.startswith("INBOX")
+
+#[Account deverrors]
+#localrepository = deverrors-local
+#remoterepository = deverrors-remote
+#autorefresh = 1
+#postsynchook = ~/.mutt/offlineimap-postsync.sh
+#
+#[Repository deverrors-local]
+#type = Maildir
+#localfolders = ~/Maildir/deverrors
+#sep = /
+#
+#[Repository deverrors-remote]
+#type = IMAP
+#remotehost = imap.ingresso.co.uk
+#remoteuser = deverrors
+#remotepasseval = keyring.get_password("imap.ingresso.co.uk", "deverrors")
+#sslcacertfile = /etc/ssl/cert.pem
+#folderfilter = lambda foldername: foldername.startswith("INBOX")
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"

@@ -70,6 +70,50 @@ https://github.com/powerline/fonts/tree/master/Meslo%20Slashed
 
 You can then update your font used by your terminal.
 
+You'll also want to install FZF as a commandline utility too:
+```
+brew install fzf
+```
+
+# Fish setup
+Install the fish and omf directories underneath `~/.config`, so create it if necessary:
+```
+mkdir -p ~/.config
+```
+and then run stow
+```
+stow config -t ~/.config/
+```
+
+You need to install fish. You can do so with brew:
+```
+brew install fish
+```
+Next you will want to install oh-my-fish
+```
+curl -L https://get.oh-my.fish | fish
+```
+
+# Mutt setup
+This took a long time to do and I didn't document it, so this will be an imperfect recollection.
+Here are some packages to install:
+```
+brew install msmtp --with-gsasl
+brew install lua
+brew install imapfilter
+brew install mutt-notmuch
+brew install links
+brew install offlineimap
+brew tap sgeb/mutt
+brew install sgeb/mutt/mutt --with-sidebar-patch
+```
+All the config files are in the mutt directory of these dotfiles, so just type:
+```
+stow mutt
+```
+to symlink them all.
+
+
 
 # Usage
 Now you can edit the `.bash_profile`, `.vimrc`, `.inputrc` and `.gitconfig` files directly in your home

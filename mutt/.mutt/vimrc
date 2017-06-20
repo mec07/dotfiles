@@ -1,0 +1,9 @@
+set textwidth=0
+set wrapmargin=0
+set cursorline
+set clipboard=unnamed
+set ignorecase
+set smartcase
+set showmode
+
+map F G5kdGggP

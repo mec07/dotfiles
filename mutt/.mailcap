@@ -1,0 +1,11 @@
+text/html;                      links %s; nametemplate=%s.html
+text/html;                      links -dump %s; nametemplate=%s.html; copiousoutput
+
+# Images
+image/jpeg; /usr/local/bin/fish /Users/mcoury/.mutt/view_attachment.fish %s
+image/pjpeg; /usr/local/bin/fish /Users/mcoury/.mutt/view_attachment.fish %s
+image/png; /usr/local/bin/fish /Users/mcoury/.mutt/view_attachment.fish %s
+image/gif; /usr/local/bin/fish /Users/mcoury/.mutt/view_attachment.fish %s
+
+# PDF
+application/pdf; /usr/local/bin/fish /Users/mcoury/.mutt/view_attachment.fish %s pdf
