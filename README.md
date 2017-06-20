@@ -12,7 +12,7 @@ To use these dotfiles, make a backup of your current dotfiles, e.g.
 ```
 mv ~/.bash_profile ~/.bash_profile_old
 ```
-then cd into this git repo.
+then cd into this git repo. Note that if you're going to use the fish shell, you don't really care about the `.bash_profile` anymore.
 
 To start using the `.bash_profile` file type the following:
 ```
@@ -54,7 +54,7 @@ Now open up a vim file and type:
 :PluginInstall
 ```
 It should open a panel and start downloading the plugins.
-Then you need to install YouCompleteMe:
+Then you need to install YouCompleteMe (although to be honest I no longer use YouCompleteMe):
 ```
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
