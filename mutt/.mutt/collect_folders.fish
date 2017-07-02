@@ -1,7 +1,7 @@
-function collect_work_folders
+function collect_folders
     set original_dir (pwd)
-    cd ~/Maildir/work
-    set all_mailboxes (find . -type d | grep -v '\(cur\|new\|tmp\)$')
+    cd ~/Maildir/$argv/
+    set all_mailboxes (find . -type d | grep -v '\(cur\|new\|tmp\)$' | sed "s/\.\///g")
     set mailbox_string ''
     for a_mailbox in $all_mailboxes
         if [ $a_mailbox != "." ]
@@ -12,4 +12,4 @@ function collect_work_folders
     echo $mailbox_string
 end
 
-collect_work_folders
+collect_folders $argv

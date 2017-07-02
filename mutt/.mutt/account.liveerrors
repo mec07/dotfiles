@@ -5,4 +5,4 @@ set postponed = "~/Maildir/work/Drafts"
 
 unmailboxes *
 
-mailboxes `/usr/local/bin/fish ~/.mutt/collect_ingresso_folders.fish liveerrors`
+mailboxes `/usr/local/bin/fish ~/.mutt/collect_folders.fish liveerrors`
