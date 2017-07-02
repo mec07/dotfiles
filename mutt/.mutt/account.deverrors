@@ -1,0 +1,8 @@
+set folder = "~/Maildir/deverrors"
+set spoolfile = "+/INBOX"
+set record = "~/Maildir/work/Sent Items"
+set postponed = "~/Maildir/work/Drafts"
+
+unmailboxes *
+
+mailboxes `/usr/local/bin/fish ~/.mutt/collect_ingresso_folders.fish liveerrors`

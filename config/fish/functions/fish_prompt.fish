@@ -1,5 +1,5 @@
 function fish_prompt
-	set -l last_command_status $status
+  set -l last_command_status $status
   set -l cwd
 
   if test "$theme_short_path" = 'yes'

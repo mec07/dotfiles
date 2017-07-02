@@ -1,19 +1,22 @@
-set folder = "~/Maildir/"
-folder-hook '~/Maildir/work' 'source ~/.mutt/account.work'
-folder-hook '~/Maildir/liveerrors' 'source ~/.mutt/account.liveerrors'
-source ~/.mutt/mailboxes
-set spoolfile = "+work/INBOX"
-set record = "+work/Sent Items"
-set postponed = "+work/Drafts"
+folder-hook 'account.work' source '~/.mutt/account.work'
+folder-hook 'account.liveerrors' source '~/.mutt/account.liveerrors'
+folder-hook 'account.deverrors' source '~/.mutt/account.deverrors'
+#source ~/.mutt/mailboxes
+source ~/.mutt/account.work
+macro index <f1> '<enter-command>source ~/.mutt/account.work<enter><change-folder>!<enter><sync-mailbox>'
+macro index <f2> '<enter-command>source ~/.mutt/account.liveerrors<enter><change-folder>!<enter><sync-mailbox>'
+macro index <f3> '<enter-command>source ~/.mutt/account.deverrors<enter><change-folder>!<enter><sync-mailbox>'
 
-# Sendmail
+# Sendmail  ------------------------------------------------------------------------------------------------------------
 set sendmail = "/usr/local/bin/msmtp"
 set from     = marc.coury@accesso.com # send from accesso email
 set realname = "Marc Coury"
 set my_msmtp_pass=`gpg --decrypt .mutt/.msmtp-password.gpg`
 set signature = "~/.mutt/signature.txt"
 
+# General Settings  ----------------------------------------------------------------------------------------------------
 set quit
+set mail_check = 10
 set editor              = "vim -u ~/.mutt/vimrc"
 set copy                                 # Keep copies of outgoing mail...
 set delete
@@ -65,8 +68,6 @@ set implicit_autoview
 # Sidebar setup --------------------------------------------------------------------------------------------------------
 set sidebar_width       = 30
 set sidebar_visible     = yes
-set sidebar_delim       = "|"
-set sidebar_sort        = yes
 set status_chars        = " *%A"
 set status_format       = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?($"
 
@@ -78,21 +79,7 @@ bind index <right> "sidebar-open"
 macro index \CB '<enter-command>toggle sidebar_visible<enter><refresh>'
 macro pager \CB '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
 
-# Mailboxes to show in the sidebar.
-mailboxes =work/INBOX
-mailboxes =work/Gurjinder
-mailboxes =work/Systems
-mailboxes =work/Hlin
-mailboxes =work/Github
-mailboxes =work/Stripe
-mailboxes =work/"Sales Reports"
-mailboxes =work/Drafts
-mailboxes =work/"Sent Items"
-mailboxes =work/Outbox
-mailboxes =temporary/search
-#mailboxes =liveerrors/INBOX
-#mailboxes =deverrors/INBOX
-
+# Mailbox navigation ---------------------------------------------------------------------------------------------------
 # scroll up and down in emails
 bind pager k previous-line
 bind pager j next-line
@@ -117,7 +104,7 @@ bind pager G bottom
 bind index r group-reply
 
 # Search with mutt-notmuch-py
-macro index \CS "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G ~/Maildir/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" \
+macro index \CS "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G ~/Maildir/temporary/search<enter><change-folder-readonly>~/Maildir/temporary/search<enter>" \
             "search mail (using notmuch)"
 
 # Sync email

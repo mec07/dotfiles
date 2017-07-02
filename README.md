@@ -104,8 +104,7 @@ brew install imapfilter
 brew install mutt-notmuch
 brew install links
 brew install offlineimap
-brew tap sgeb/mutt
-brew install sgeb/mutt/mutt --with-sidebar-patch
+brew install neomutt/homebrew-neomutt/neomutt
 ```
 All the config files are in the mutt directory of these dotfiles, so just type:
 ```
@@ -113,6 +112,15 @@ stow mutt
 ```
 to symlink them all.
 
+To open up mutt just type:
+```
+mutt
+```
+
+To sync your mailboxes just run offlineimap in a terminal:
+```
+offlineimap
+```
 
 
 # Usage
