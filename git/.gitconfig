@@ -16,3 +16,5 @@ email = marccoury@ingresso.co.uk
 	prompt = false
 [alias]
 	d = difftool
+#[url "git@github.com:"]
+#	insteadOf = https://github.com/

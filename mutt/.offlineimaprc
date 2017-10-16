@@ -1,5 +1,4 @@
 [general]
-#accounts = work,liveerrors,deverrors
 accounts = work,liveerrors
 maxsyncaccounts = 3
 pythonfile = ~/.mutt/offlineimap.py
@@ -9,7 +8,7 @@ auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
 localrepository = work-local
 remoterepository = work-remote
 autorefresh = 1
-presynchook = ~/.mutt/offlineimap-presync.sh
+#presynchook = ~/.mutt/offlineimap-presync.sh
 postsynchook = ~/.mutt/offlineimap-postsync.sh
 
 [Repository work-local]
@@ -22,7 +21,7 @@ remotehost = outlook.office365.com
 remoteuser = marc.coury@accesso.com
 remotepasseval = keyring.get_password("outlook.office365.com", "marc.coury@accesso.com")
 sslcacertfile = /etc/ssl/cert.pem
-folderfilter = lambda foldername: foldername not in ["Contacts", "Calendar"]
+folderfilter = lambda foldername: foldername not in ["Calendar","Calendar.Birthdays","Calendar.Birthdays1","Calendar.United Kingdom holidays (1)","Contacts","Contacts.Companies","Contacts.Organizational Contacts","Contacts.PeopleCentricConversation Buddies","Contacts.{06967759-274D-40B2-A3EB-D7F9E73727D7}","Contacts.{A9E2BC46-B3A0-4243-B315-60D991004455}","Conversation History",]
 
 [Account liveerrors]
 localrepository = liveerrors-local
@@ -41,19 +40,19 @@ remotehost = imap.ingresso.co.uk
 remoteuser = liveerrors
 remotepasseval = keyring.get_password("imap.ingresso.co.uk", "liveerrors")
 sslcacertfile = /etc/ssl/cert.pem
-folderfilter = lambda foldername: foldername.startswith("INBOX")
+folderfilter = lambda foldername: foldername not in ["INBOX", "INBOX.Backends.Owo","Trash", "[Airmail]", "Done","Memo","Send Later","Snooze","To Do","Archive","Archives","2015","2016","2017","Deleted Items","Deleted Messages","Drafts","Important", "System Alerts","Junk", "Junk Messages","Notes", "Sent Items", "Sent Messages", "System Alerts"]
 
 #[Account deverrors]
 #localrepository = deverrors-local
 #remoterepository = deverrors-remote
-#autorefresh = 1
+#autorefresh = 15
 #postsynchook = ~/.mutt/offlineimap-postsync.sh
-#
+
 #[Repository deverrors-local]
 #type = Maildir
 #localfolders = ~/Maildir/deverrors
 #sep = /
-#
+
 #[Repository deverrors-remote]
 #type = IMAP
 #remotehost = imap.ingresso.co.uk

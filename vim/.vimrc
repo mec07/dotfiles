@@ -1,62 +1,168 @@
-set cursorline
+if &diff
+else
+	set cursorline
+	set clipboard=unnamed
 
-set clipboard=unnamed
+	" enable mouse inside vim
+	set mouse=a
+	set number
+	set iskeyword-=_
+	set viminfo='100,<1000,s1000,h "'100 Increases the number of files that buggers are stored for to 100,
 
-" enable mouse inside vim
-set mouse=a
+	" Set the encoding to utf-8:
+	set encoding=utf-8
 
-set number
+	" Case insensitive searches
+	set ignorecase
 
-set iskeyword-=_
+	" Case sensitive search if search contains capital letters
+	set smartcase
 
-set viminfo='100,<1000,s1000,h "'100 Increases the number of files that buggers are stored for to 100,
+	" Try the following if your GUI uses a dark background.
+	highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 
-" Set the encoding to utf-8:
-set encoding=utf-8
+	" Show trailing whitespace:
+	match ExtraWhitespace /\s\+$/
 
-" Case insensitive searches
-set ignorecase
+	" Clear last search
+	command Clear let @/ = ""
 
-" Case sensitive search if search contains capital letters
-set smartcase
+	" Enable copying by highlighting with mouse
+	command Copy set nonu |
+	  \ set mouse= |
+	"  \ NT
 
-" Try the following if your GUI uses a dark background.
-highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+	command Uncopy set nu |
+	  \ set mouse=a |
+	"  \ NT
 
-" Show trailing whitespace:
-match ExtraWhitespace /\s\+$/
+	" Maintain undo history between sessions
+	set undofile
+	set undodir=~/.vim/undodir
 
-" Fix coloring in vimdiff
-" if &diff
-"   colorscheme mycolorscheme
-" endif
+	" Enable folding
+	set foldmethod=indent
+	set foldlevel=99
+	" Enable folding with the spacebar
+	nnoremap <space> za
 
-" Highlight overlength (120+) lengths as red.
-highlight OverlengthErr ctermbg=red ctermfg=black
+	" ignore files in NERDTree
+	"let NERDTreeIgnore=['\.pyc$', '\~$']
 
-2match OverlengthErr /\%121v.\+/
+	"""""""""""""""""""""""""
+	" Vundle stuff:
+	" To install the plugins, open vim and type :PluginInstall
+	"""""""""""""""""""""""""
 
-" Clear last search
-command Clear let @/ = ""
+	set nocompatible              " required
+	filetype off                  " required
 
-" Enable copying by highlighting with mouse
-command Copy set nonu |
-  \ set mouse= |
-  \ NT
+	" set the runtime path to include Vundle and initialize
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
 
-command Uncopy set nu |
-  \ set mouse=a |
-  \ NT
+	" alternatively, pass a path where Vundle should install plugins
+	"call vundle#begin('~/some/path/here')
 
-" Maintain undo history between sessions
-set undofile
-set undodir=~/.vim/undodir
+	" let Vundle manage Vundle, required
+	Plugin 'gmarik/Vundle.vim'
 
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-" Enable folding with the spacebar
-nnoremap <space> za
+	" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+	Plugin 'tmhedberg/SimpylFold'
+	"Bundle 'Valloric/YouCompleteMe'
+	Plugin 'scrooloose/syntastic'
+	Plugin 'nvie/vim-flake8'
+	Plugin 'jnurmine/Zenburn'
+	"Plugin 'scrooloose/nerdtree'
+	"Plugin 'jistr/vim-nerdtree-tabs'
+	Plugin 'francoiscabrol/ranger.vim'
+	Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+	" Fuzzy file finder
+	Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	" Search repo from within vim
+	Plugin 'mileszs/ack.vim'
+
+	" All of your Plugins must be added before the following line
+	call vundle#end()            " required
+	filetype plugin indent on    " required
+
+	"""""""""""""""""""""""""
+	" Vundle over
+	"""""""""""""""""""""""""
+
+	" Search using ag instead of ack:
+	if executable('ag')
+		let g:ackprg = 'ag --vimgrep'
+	endif
+	" Rename Ack! command to Ag
+	command Ag Ack!
+	" YouCompleteMe customisations:
+	" let g:ycm_seed_identifiers_with_syntax=1
+	" let g:ycm_global_ycm_extra_conf = '/home/li/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+	" let g:ycm_confirm_extra_conf=0
+	" let g:ycm_collect_identifiers_from_tag_files = 1
+	" let g:ycm_autoclose_preview_window_after_completion=1
+	" set completeopt=longest,menu
+
+	" Powerline config:
+	" To get all the symbols working I had to install Source Code Pro for
+	" Powerline from here: https://github.com/powerline/fonts/tree/master/SourceCodePro
+	" In the end though I preferred this font for powerline, Meslo LG M which I
+	" downloaded from https://github.com/powerline/fonts/tree/master/Meslo%20Slashed
+	" and set that to be my font in iterm2
+	let g:Powerline_symbols = 'fancy'
+	set laststatus=2
+
+	" NERDTreeTabs config:
+	" Auto open NERDTreeTabs on startup
+	"let g:nerdtree_tabs_open_on_console_startup=1
+	"command NT NERDTreeTabsToggle
+
+	" Python highlighting
+	let python_highlight_all=1
+	syntax on
+
+	" shorten the ranger new tab command
+	command RNT RangerNewTab
+endif
+" Moving around split screens with ctrl-h,j,k,l
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+
+" Python autoindents
+au BufNewFile,BufRead *.py,*.feature
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=120 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+    \ set cc=80 |
+
+" Frontend autoindents
+au BufNewFile,BufRead *.js,*.html,*.css
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set textwidth=120 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+
+" Latex autoindents
+au BufNewFile,BufRead *.tex
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+    \ highlight clear OverLengthErr |
+
 
 "python with virtualenv support
 py << EOF
@@ -67,99 +173,3 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
-
-" ignore files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$']
-
-"""""""""""""""""""""""""
-" Vundle stuff:
-" To install the plugins, open vim and type :PluginInstall
-"""""""""""""""""""""""""
-
-set nocompatible              " required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'tmhedberg/SimpylFold'
-"Bundle 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" Fuzzy file finder
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-"""""""""""""""""""""""""
-" Vundle over
-"""""""""""""""""""""""""
-
-" YouCompleteMe customisations:
-" let g:ycm_seed_identifiers_with_syntax=1
-" let g:ycm_global_ycm_extra_conf = '/home/li/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
-" let g:ycm_confirm_extra_conf=0
-" let g:ycm_collect_identifiers_from_tag_files = 1
-" let g:ycm_autoclose_preview_window_after_completion=1
-" set completeopt=longest,menu
-
-" Python highlighting
-let python_highlight_all=1
-syntax on
-
-" Moving around split screens with ctrl-h,j,k,l
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" Powerline config:
-" To get all the symbols working I had to install Source Code Pro for
-" Powerline from here: https://github.com/powerline/fonts/tree/master/SourceCodePro
-" In the end though I preferred this font for powerline, Meslo LG M which I
-" downloaded from https://github.com/powerline/fonts/tree/master/Meslo%20Slashed
-" and set that to be my font in iterm2
-let g:Powerline_symbols = 'fancy'
-set laststatus=2
-
-" NERDTreeTabs config:
-" Auto open NERDTreeTabs on startup
-let g:nerdtree_tabs_open_on_console_startup=1
-command NT NERDTreeTabsToggle
-
-" Python autoindents
-au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=120 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix |
-    \ set cc=80 |
-
-" Fullstack autoindents
-au BufNewFile,BufRead *.js,*.html,*.css
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
-    \ set textwidth=120 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix |
-

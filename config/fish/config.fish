@@ -1,8 +1,10 @@
-set -x PATH $HOME/bin $PATH
+set -x PATH $HOME/bin /Library/TeX/texbin $HOME/go/bin $PATH
 set -x EDITOR vim
 set -x TERM 'xterm-256color'
 set -x LANG en_GB.UTF-8
 set -x FZF_DEFAULT_COMMAND 'ag -g ""'
+set -x GOPATH ~/go
+set -x GOBIN ~/go/bin
 
 ##############################################################################
 # Aliases
@@ -33,6 +35,10 @@ end
 
 function gpush
 	git push
+end
+
+function swap
+	kubectl config use-context $argv
 end
 
 ##############################################################################
