@@ -41,6 +41,10 @@ function swap
 	kubectl config use-context $argv
 end
 
+function FZF
+	fzf | read -l result; and vim $result
+end
+
 ##############################################################################
 # OMF
 ##############################################################################

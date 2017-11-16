@@ -40,7 +40,7 @@ remotehost = imap.ingresso.co.uk
 remoteuser = liveerrors
 remotepasseval = keyring.get_password("imap.ingresso.co.uk", "liveerrors")
 sslcacertfile = /etc/ssl/cert.pem
-folderfilter = lambda foldername: foldername not in ["INBOX", "INBOX.Backends.Owo","Trash", "[Airmail]", "Done","Memo","Send Later","Snooze","To Do","Archive","Archives","2015","2016","2017","Deleted Items","Deleted Messages","Drafts","Important", "System Alerts","Junk", "Junk Messages","Notes", "Sent Items", "Sent Messages", "System Alerts"]
+folderfilter = lambda foldername: foldername not in ["INBOX", "INBOX.Backends.Owo","INBOX.Backends.npg", "Trash", "[Airmail]", "Done","Memo","Send Later","Snooze","To Do","Archive","Archives","2015","2016","2017","Deleted Items","Deleted Messages","Drafts","Important", "System Alerts","Junk", "Junk Messages","Notes", "Sent Items", "Sent Messages", "System Alerts"]
 
 #[Account deverrors]
 #localrepository = deverrors-local
