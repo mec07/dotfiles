@@ -1,4 +1,4 @@
-set -x PATH $HOME/bin /Library/TeX/texbin $HOME/go/bin $PATH
+set -x PATH $HOME/bin /Library/TeX/texbin $HOME/go/bin /usr/local/opt/python/libexec/bin $PATH
 set -x EDITOR vim
 set -x TERM 'xterm-256color'
 set -x LANG en_GB.UTF-8

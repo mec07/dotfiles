@@ -3,9 +3,13 @@ else
 	set cursorline
 	set clipboard=unnamed
 
+	" allow backspacing over everything in insert mode
+	set backspace=indent,eol,start
+
 	" enable mouse inside vim
 	set mouse=a
-	set number
+	set number relativenumber
+
 	set iskeyword-=_
 	set viminfo='100,<1000,s1000,h "'100 Increases the number of files that buggers are stored for to 100,
 
@@ -82,6 +86,8 @@ else
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	" Search repo from within vim
 	Plug 'mileszs/ack.vim'
+	" Vue js syntax
+	Plug 'posva/vim-vue'
 
 	" All of your Plugs must be added before the following line
 	call plug#end()            " required
@@ -145,7 +151,7 @@ au BufNewFile,BufRead *.py,*.feature
     \ set cc=80 |
 
 " Frontend autoindents
-au BufNewFile,BufRead *.js,*.html,*.css
+au BufNewFile,BufRead *.js,*.html,*.css,*.vue
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
