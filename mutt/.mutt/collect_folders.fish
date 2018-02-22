@@ -20,19 +20,19 @@ function contains_mail
     set -lx folder_contains_tmp (folder_contains $argv/tmp)
     set -lx folder_contains_new (folder_contains $argv/new)
     if [ $folder_contains_cur = "true" ]
-        set -lx cur (ls $argv/cur | wc -l)
+        set -x cur (ls $argv/cur | wc -l)
     else
-        set -lx cur 0
+        set -x cur 0
     end
     if [ $folder_contains_tmp = "true" ]
-        set -lx tmp (ls $argv/tmp | wc -l)
+        set -x tmp (ls $argv/tmp | wc -l)
     else
-        set -lx tmp 0
+        set -x tmp 0
     end
     if [ $folder_contains_new = "true" ]
-        set -lx new (ls $argv/new | wc -l)
+        set -x new (ls $argv/new | wc -l)
     else
-        set -lx new 0
+        set -x new 0
     end
     set -lx total (math $cur + $new + $tmp)
     if [ $total -gt 0 ]
