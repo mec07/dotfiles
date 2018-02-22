@@ -2,6 +2,7 @@ set folder = "~/Maildir/liveerrors"
 set spoolfile = "+INBOX"
 set record = "~/Maildir/work/Sent Items"
 set postponed = "~/Maildir/work/Drafts"
+set trash = '/dev/null'
 
 unmailboxes *
 

@@ -3,6 +3,9 @@ else
 	set cursorline
 	set clipboard=unnamed
 
+	" show line number, column number and percentage through file
+	set ruler
+
 	" allow backspacing over everything in insert mode
 	set backspace=indent,eol,start
 
@@ -88,6 +91,9 @@ else
 	Plug 'mileszs/ack.vim'
 	" Vue js syntax
 	Plug 'posva/vim-vue'
+
+	" projectionist
+	Plug 'tpope/vim-projectionist'
 
 	" All of your Plugs must be added before the following line
 	call plug#end()            " required

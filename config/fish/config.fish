@@ -7,7 +7,7 @@ set -x GOPATH ~/go
 set -x GOBIN ~/go/bin
 
 ##############################################################################
-# Aliases
+# Git Aliases
 ##############################################################################
 function gstat
 	git status
@@ -37,6 +37,25 @@ function gpush
 	git push
 end
 
+function ghash
+	git rev-parse --short=10 HEAD
+end
+
+function ghash^
+	git rev-parse --short=10 HEAD^
+end
+
+function gbranchls
+	if count $argv > 0
+		git branch --sort=-committerdate | head -n $argv
+	else
+		git branch --sort=-committerdate
+	end
+end
+
+##############################################################################
+# Misc Aliases
+##############################################################################
 function swap
 	kubectl config use-context $argv
 end

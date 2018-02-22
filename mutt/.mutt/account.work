@@ -2,6 +2,7 @@ set folder = "~/Maildir/work"
 set spoolfile = "+INBOX"
 set record = "+Sent Items"
 set postponed = "+Drafts"
+set trash = '/Users/mcoury/Maildir/work/Deleted Items'
 
 unmailboxes *
 
