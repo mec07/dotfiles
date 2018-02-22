@@ -16,24 +16,9 @@ function collect_folders
 end
 
 function contains_mail
-    set -lx folder_contains_cur (folder_contains $argv/cur)
-    set -lx folder_contains_tmp (folder_contains $argv/tmp)
-    set -lx folder_contains_new (folder_contains $argv/new)
-    if [ $folder_contains_cur = "true" ]
-        set -x cur (ls $argv/cur | wc -l)
-    else
-        set -x cur 0
-    end
-    if [ $folder_contains_tmp = "true" ]
-        set -x tmp (ls $argv/tmp | wc -l)
-    else
-        set -x tmp 0
-    end
-    if [ $folder_contains_new = "true" ]
-        set -x new (ls $argv/new | wc -l)
-    else
-        set -x new 0
-    end
+    set -lx cur (count_files_in $argv/cur)
+    set -lx tmp (count_files_in $argv/tmp)
+    set -lx new (count_files_in $argv/new)
     set -lx total (math $cur + $new + $tmp)
     if [ $total -gt 0 ]
         echo "true"
@@ -42,12 +27,8 @@ function contains_mail
     end
 end
 
-function folder_contains
-    if ls $argv > /dev/null ^ /dev/null
-        echo "true"
-    else
-        echo "false"
-    end
+function count_files_in
+    echo (ls $argv ^ /dev/null | wc -l)
 end
 
 collect_folders $argv
