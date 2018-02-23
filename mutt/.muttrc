@@ -112,7 +112,7 @@ bind index r group-reply
 bind pager r group-reply
 
 # Search with mutt-notmuch-py
-macro index \CS "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G ~/Maildir/temporary/search<enter><change-folder-readonly>~/Maildir/temporary/search<enter>" \
+macro index \CS "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G ~/Mail/temporary/search<enter><change-folder-readonly>~/Mail/temporary/search<enter>" \
             "search mail (using notmuch)"
 
 # Sync email

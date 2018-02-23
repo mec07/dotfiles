@@ -2,7 +2,7 @@ function collect_folders
     set original_dir (pwd)
     cd ~/Maildir/$argv/
     set all_mailboxes (find . -type d | grep -v '\(cur\|new\|tmp\)$' | sed "s/\.\///g")
-    set mailbox_string 'mailboxes'
+    set mailbox_string 'mailboxes "~/Mail/temporary/search"'
     for a_mailbox in $all_mailboxes
         if [ $a_mailbox != "." ]
             set -lx mailbox_contains_mail (contains_mail ~/Maildir/$argv/$a_mailbox)
