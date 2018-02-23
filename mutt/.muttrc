@@ -1,17 +1,13 @@
 folder-hook 'account.work' source '~/.mutt/account.work'
 folder-hook 'account.liveerrors' source '~/.mutt/account.liveerrors'
-#folder-hook 'account.deverrors' source '~/.mutt/account.deverrors'
-#source ~/.mutt/mailboxes
 source ~/.mutt/account.work
 macro index <f1> '<enter-command>source ~/.mutt/account.work<enter><change-folder>!<enter><sync-mailbox>'
 macro index <f2> '<enter-command>source ~/.mutt/account.liveerrors<enter><change-folder>!<enter><sync-mailbox>'
-#macro index <f3> '<enter-command>source ~/.mutt/account.deverrors<enter><change-folder>!<enter><sync-mailbox>'
 
 # Sendmail  ------------------------------------------------------------------------------------------------------------
 set sendmail = "/usr/local/bin/msmtp"
 set from     = marccoury@ingresso.co.uk # send from accesso email
 set realname = "Marc Coury"
-set my_msmtp_pass=`gpg --decrypt .mutt/.msmtp-password.gpg`
 set signature = "~/.mutt/signature.txt"
 
 # General Settings  ----------------------------------------------------------------------------------------------------

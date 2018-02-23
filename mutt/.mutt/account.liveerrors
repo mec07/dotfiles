@@ -5,5 +5,4 @@ set postponed = "~/Maildir/work/Drafts"
 set trash = '/dev/null'
 
 unmailboxes *
-
-mailboxes `/usr/local/bin/fish ~/.mutt/collect_folders.fish liveerrors`
+source ~/.mutt/mailboxes.liveerrors

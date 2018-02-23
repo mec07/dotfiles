@@ -5,5 +5,4 @@ set postponed = "+Drafts"
 set trash = '/Users/mcoury/Maildir/work/Deleted Items'
 
 unmailboxes *
-
-mailboxes `/usr/local/bin/fish ~/.mutt/collect_folders.fish work`
+source ~/.mutt/mailboxes.work
