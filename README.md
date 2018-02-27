@@ -45,25 +45,18 @@ The output should be something like:
 ```
 VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Apr 20 2017 20:02:24)
 ```
-You will also need to install vundle:
+You will also need to install vim-plug (https://github.com/junegunn/vim-plug):
 ```
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 Now open up a vim file and type:
 ```
-:PluginInstall
+:PlugInstall
 ```
 It should open a panel and start downloading the plugins.
-Then you need to install YouCompleteMe (although to be honest I no longer use YouCompleteMe):
-```
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
-```
-If that throws an error, you may be missing cmake, so install it with
-```
-brew install cmake
-```
 
+If you want to use powerline (I have commented it out as I don't use it anymore...):
 You will probably also need to install a font that has the powerline special characters.
 My preferred font is Meslo LG M which I downloaded from
 https://github.com/powerline/fonts/tree/master/Meslo%20Slashed
