@@ -64,6 +64,10 @@ function FZF
 	fzf | read -l result; and vim $result
 end
 
+function goplay
+	/Users/mcoury/go/src/github.com/wrousnel/go-play/goplay/goplay
+end
+
 ##############################################################################
 # OMF
 ##############################################################################

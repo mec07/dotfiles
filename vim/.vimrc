@@ -66,9 +66,6 @@ else
 
 	call plug#begin('~/.vim/plugged')
 
-	" alternatively, pass a path where Vundle should install plugins
-	"call vundle#begin('~/some/path/here')
-
 	" let Vundle manage Vundle, required
 	Plug 'gmarik/Vundle.vim'
 
@@ -89,11 +86,15 @@ else
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	" Search repo from within vim
 	Plug 'mileszs/ack.vim'
+
 	" Vue js syntax
 	Plug 'posva/vim-vue'
 
 	" projectionist
 	Plug 'tpope/vim-projectionist'
+
+	" vim-go
+	Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 	" All of your Plugs must be added before the following line
 	call plug#end()            " required
@@ -157,7 +158,7 @@ au BufNewFile,BufRead *.py,*.feature
     \ set cc=80 |
 
 " Frontend autoindents
-au BufNewFile,BufRead *.js,*.html,*.css,*.vue
+au BufNewFile,BufRead *.js,*.json,*.html,*.css,*.vue
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |

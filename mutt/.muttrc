@@ -1,8 +1,8 @@
 folder-hook 'account.work' source '~/.mutt/account.work'
-folder-hook 'account.liveerrors' source '~/.mutt/account.liveerrors'
+#folder-hook 'account.liveerrors' source '~/.mutt/account.liveerrors'
 source ~/.mutt/account.work
 macro index <f1> '<enter-command>source ~/.mutt/account.work<enter><change-folder>!<enter><sync-mailbox>'
-macro index <f2> '<enter-command>source ~/.mutt/account.liveerrors<enter><change-folder>!<enter><sync-mailbox>'
+#macro index <f2> '<enter-command>source ~/.mutt/account.liveerrors<enter><change-folder>!<enter><sync-mailbox>'
 
 # Sendmail  ------------------------------------------------------------------------------------------------------------
 set sendmail = "/usr/local/bin/msmtp"
@@ -112,8 +112,8 @@ bind index r group-reply
 bind pager r group-reply
 
 # Search with mutt-notmuch-py
-macro index \CS "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G ~/Mail/temporary/search<enter><change-folder-readonly>~/Mail/temporary/search<enter>" \
-            "search mail (using notmuch)"
+#macro index \CS "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G ~/Mail/temporary/search<enter><change-folder-readonly>~/Mail/temporary/search<enter>" \
+#            "search mail (using notmuch)"
 
 # Sync email
 macro index O "<shell-escape>offlineimap -o<enter>"           "run offlineimap to sync all mail"
