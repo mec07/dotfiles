@@ -8,5 +8,29 @@ set showmode
 set backspace=indent,eol,start
 set nocompatible
 set noundofile
+set spell spelllang=en_gb
 
 map F G5kdGggP
+
+
+"""""""""""""""""""""""""
+" Vundle stuff:
+" To install the plugins, open vim and type :PlugInstall
+"""""""""""""""""""""""""
+
+set nocompatible              " required
+filetype off                  " required
+
+call plug#begin('~/.vim/plugged')
+
+" replacement for syntastic
+Plug 'w0rp/ale'
+
+" All of your Plugs must be added before the following line
+call plug#end()            " required
+filetype plugin indent on    " required
+
+"""""""""""""""""""""""""
+" Vundle over
+"""""""""""""""""""""""""
+

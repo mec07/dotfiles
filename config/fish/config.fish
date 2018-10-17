@@ -41,6 +41,10 @@ function ghash
 	git rev-parse --short=10 HEAD
 end
 
+function ghash7
+	git rev-parse --short=7 HEAD
+end
+
 function ghash^
 	git rev-parse --short=10 HEAD^
 end
@@ -54,12 +58,51 @@ function gbranchls
 end
 
 ##############################################################################
-# Misc Aliases
+# Kubernetes Aliases
 ##############################################################################
+function drain
+	kubectl drain --force --ignore-daemonsets --delete-local-data
+end
+
+function getautoscaler
+	kubectl -n kube-system get cm cluster-autoscaler-status -oyaml
+end
+
+function k
+	kubectl $argv
+end
+
+function kd
+	kubectl describe $argv
+end
+
+function kex
+	kubectl exec $argv
+end
+
+function kg
+	kubectl get $argv
+end
+
+function kgw
+	kubectl get -owide --watch $argv
+end
+
+function krm
+	kubectl delete $argv
+end
+
+function ksys
+	kubectl --namespace kube-system
+end
+
 function swap
 	kubectl config use-context $argv
 end
 
+##############################################################################
+# Misc Aliases
+##############################################################################
 function FZF
 	fzf | read -l result; and vim $result
 end
@@ -67,6 +110,7 @@ end
 function goplay
 	/Users/mcoury/go/src/github.com/wrousnel/go-play/goplay/goplay
 end
+
 
 ##############################################################################
 # OMF
@@ -95,3 +139,5 @@ source $OMF_PATH/init.fish
 ##############################################################################
 eval (python -m virtualfish auto_activation)
 
+set -g fish_user_paths "/usr/local/opt/libxml2/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/libxslt/bin" $fish_user_paths

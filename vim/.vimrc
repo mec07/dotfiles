@@ -1,7 +1,12 @@
 if &diff
 else
-	set cursorline
+    " disable cursoline as it can slow vim down a lot -- I can turn it on
+    " later if I want
+	" set cursorline
 	set clipboard=unnamed
+
+	" lazy redraw should speed up scrolling a little bit
+	set lazyredraw
 
 	" show line number, column number and percentage through file
 	set ruler
@@ -11,7 +16,10 @@ else
 
 	" enable mouse inside vim
 	set mouse=a
-	set number relativenumber
+
+	" add numbers (add relativenumber if you want relative numbering -- it
+	" is quite slow though)
+	set number
 
 	set iskeyword-=_
 	set viminfo='100,<1000,s1000,h "'100 Increases the number of files that buggers are stored for to 100,
@@ -92,9 +100,23 @@ else
 
 	" projectionist
 	Plug 'tpope/vim-projectionist'
+	" surround
+	Plug 'tpope/vim-surround'
+    " fugitive
+    Plug 'tpope/vim-fugitive'
 
 	" vim-go
 	Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+
+    " javascript
+    Plug 'pangloss/vim-javascript'
+    Plug 'mxw/vim-jsx'
+
+    " snippets
+    Plug 'https://github.com/SirVer/ultisnips'
+
+    " multiple cursors! :)
+    Plug 'terryma/vim-multiple-cursors'
 
 	" All of your Plugs must be added before the following line
 	call plug#end()            " required
@@ -109,7 +131,8 @@ else
 		let g:ackprg = 'ag --vimgrep'
 	endif
 	" Rename Ack! command to Ag
-	command Ag Ack!
+	command! -nargs=* Ag call ack#Ack('grep!',<q-args>)
+
 	" YouCompleteMe customisations:
 	" let g:ycm_seed_identifiers_with_syntax=1
 	" let g:ycm_global_ycm_extra_conf = '/home/li/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
@@ -132,9 +155,27 @@ else
 	"let g:nerdtree_tabs_open_on_console_startup=1
 	"command NT NERDTreeTabsToggle
 
+	" Vim Go customisation:
+	let g:go_fmt_command = "goimports"
+
+	" Vim Ale
+	" add gometalinter:
+	"let g:ale_linters = {'go': ['gometalinter']}
+	" speed up for files with lots of errors:
+	let g:ale_echo_delay = 100
+  let g:ale_fixers = {'javascript': ['prettier'], 'css': ['prettier']}
+  let g:ale_fix_on_save = 1
+	command AT ALEToggle
+
+
 	" Python highlighting
 	let python_highlight_all=1
 	syntax on
+
+	" Snippets customisation
+	let g:UltiSnipsUsePythonVersion = 3
+	let g:UltiSnippetsDir="~/.vim/snips"
+	let g:UltiSnipsSnippetDirectories=["snips"]
 
 	" shorten the ranger new tab command
 	command RNT RangerNewTab
@@ -148,6 +189,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " Python autoindents
 au BufNewFile,BufRead *.py,*.feature
+    \ set nornu |
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -167,8 +209,11 @@ au BufNewFile,BufRead *.js,*.json,*.html,*.css,*.vue
     \ set autoindent |
     \ set fileformat=unix |
 
-" Latex autoindents
+" Latex specification
 au BufNewFile,BufRead *.tex
+    \ set nocursorline |
+    \ set nonumber |
+    \ set nornu |
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -176,6 +221,13 @@ au BufNewFile,BufRead *.tex
     \ set autoindent |
     \ set fileformat=unix |
     \ highlight clear OverLengthErr |
+
+" C/go autoindents
+au BufNewFile,BufRead *.m,*.h,*.c,*.cpp,*.go
+    \ set nornu |
+    \ set shiftwidth=8 |
+    \ set softtabstop=8 |
+    \ set tabstop=8 |
 
 
 "python with virtualenv support

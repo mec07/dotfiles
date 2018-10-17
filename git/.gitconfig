@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
 name = Marc Coury
-email = marccoury@ingresso.co.uk
+email = gloriphobia@gmail.com
 [pull]
 	rebase = true
 [merge]
@@ -18,3 +18,5 @@ email = marccoury@ingresso.co.uk
 	d = difftool
 #[url "git@github.com:"]
 #	insteadOf = https://github.com/
+[http]
+	cookiefile = /Users/mcoury/.gitcookies

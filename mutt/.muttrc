@@ -110,6 +110,8 @@ bind pager G bottom
 # reply
 bind index r group-reply
 bind pager r group-reply
+bind index R reply
+bind pager R reply
 
 # Search with mutt-notmuch-py
 #macro index \CS "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G ~/Mail/temporary/search<enter><change-folder-readonly>~/Mail/temporary/search<enter>" \
