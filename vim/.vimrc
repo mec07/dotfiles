@@ -14,8 +14,7 @@ else
 	" allow backspacing over everything in insert mode
 	set backspace=indent,eol,start
 
-	" enable mouse inside vim
-	set mouse=a
+	" enable mouse inside vim set mouse=a
 
 	" add numbers (add relativenumber if you want relative numbering -- it
 	" is quite slow though)
@@ -118,6 +117,9 @@ else
     " multiple cursors! :)
     Plug 'terryma/vim-multiple-cursors'
 
+    " vim-fish
+    Plug 'dag/vim-fish'
+
 	" All of your Plugs must be added before the following line
 	call plug#end()            " required
 	filetype plugin indent on    " required
@@ -174,11 +176,16 @@ else
 
 	" Snippets customisation
 	let g:UltiSnipsUsePythonVersion = 3
-	let g:UltiSnippetsDir="~/.vim/snips"
-	let g:UltiSnipsSnippetDirectories=["snips"]
+	"let g:UltiSnippetsDir="~/.vim/snips"
+	"let g:UltiSnipsSnippetDirectories=["snips"]
+    let g:UltiSnipsListSnippets = '<C-l>'
+    "let g:UltiSnipsExpandTrigger="<c-j>"
 
 	" shorten the ranger new tab command
 	command RNT RangerNewTab
+
+    " vim multiple cursors
+    "let g:multi_cursor_select_all_word_key = '<C-a>'
 endif
 " Moving around split screens with ctrl-h,j,k,l
 nnoremap <C-J> <C-W><C-J>
