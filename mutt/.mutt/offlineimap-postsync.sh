@@ -5,4 +5,6 @@
 /usr/local/bin/fish ~/.mutt/collect_folders.fish work > ~/.mutt/.mailboxes.work.tmp
 mv ~/.mutt/.mailboxes.work.tmp ~/.mutt/mailboxes.work
 
+date
+
 #notmuch new

@@ -9,7 +9,7 @@ auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
 localrepository = work-local
 remoterepository = work-remote
 autorefresh = 1
-#presynchook = ~/.mutt/offlineimap-presync.sh
+presynchook = ~/.mutt/offlineimap-presync.sh
 postsynchook = ~/.mutt/offlineimap-postsync.sh
 
 [Repository work-local]

@@ -141,3 +141,8 @@ eval (python -m virtualfish auto_activation)
 
 set -g fish_user_paths "/usr/local/opt/libxml2/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/libxslt/bin" $fish_user_paths
+
+##############################################################################
+# Direnv
+##############################################################################
+eval (direnv hook fish)

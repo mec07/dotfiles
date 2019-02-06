@@ -1,4 +1,5 @@
 package autojump
+package direnv
 package fzf
 package virtualfish
 theme default

@@ -14,7 +14,11 @@ else
 	" allow backspacing over everything in insert mode
 	set backspace=indent,eol,start
 
-	" enable mouse inside vim set mouse=a
+	" enable mouse inside vim
+	" set mouse=a
+	
+	" show number of characters highlighted in visual mode:
+	set showcmd
 
 	" add numbers (add relativenumber if you want relative numbering -- it
 	" is quite slow though)
@@ -101,11 +105,14 @@ else
 	Plug 'tpope/vim-projectionist'
 	" surround
 	Plug 'tpope/vim-surround'
-    " fugitive
-    Plug 'tpope/vim-fugitive'
+	" fugitive
+	Plug 'tpope/vim-fugitive'
 
 	" vim-go
 	Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+
+	" python formatting with black
+	Plug 'ambv/black'
 
     " javascript
     Plug 'pangloss/vim-javascript'
@@ -150,6 +157,8 @@ else
 	" downloaded from https://github.com/powerline/fonts/tree/master/Meslo%20Slashed
 	" and set that to be my font in iterm2
 	let g:Powerline_symbols = 'fancy'
+
+	" Filename at bottom of file
 	set laststatus=2
 
 	" NERDTreeTabs config:
@@ -193,6 +202,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Python formatting
+" au BufWritePre *.py execute ':Black'
 
 " Python autoindents
 au BufNewFile,BufRead *.py,*.feature
@@ -204,7 +215,7 @@ au BufNewFile,BufRead *.py,*.feature
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
-    \ set cc=80 |
+    \ set cc=88 |
 
 " Frontend autoindents
 au BufNewFile,BufRead *.js,*.json,*.html,*.css,*.vue
@@ -227,6 +238,7 @@ au BufNewFile,BufRead *.tex
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
+    \ let g:loaded_matchparen=1 |
     \ highlight clear OverLengthErr |
 
 " C/go autoindents
