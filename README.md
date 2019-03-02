@@ -1,6 +1,19 @@
 # dotfiles
 Dotfile management
 
+# Setting up a new laptop
+Follow the instructions here for creating a new ssh key for github and then adding it to the ssh agent:
+https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+Install homebrew:
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Setup gh tool:
+https://github.com/jdxcode/gh
+
+
 # Requirements
 You need to use stow. I think it usually comes with Linux but it doesn't come with Mac OSX, so install it with:
 ```

@@ -16,7 +16,7 @@ else
 
 	" enable mouse inside vim
 	" set mouse=a
-	
+
 	" show number of characters highlighted in visual mode:
 	set showcmd
 
