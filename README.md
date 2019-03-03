@@ -2,8 +2,29 @@
 Dotfile management
 
 # Setting up a new laptop
-Follow the instructions here for creating a new ssh key for github and then adding it to the ssh agent:
-https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+Generate a new ssh key (set a password):
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+To start the ssh-agent in the background:
+```
+eval "$(ssh-agent -s)"
+```
+or you can use the `ssh-agent` plugin for zsh.
+
+Add the following to your `~/.ssh/config` file:
+```
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
+```
+
+Then add the ssh key to the agent and store the password in keychain (Mac OSX specific):
+```
+ssh-add -K ~/.ssh/id_rsa
+```
 
 Install homebrew:
 ```
@@ -29,13 +50,13 @@ then cd into this git repo. Note that if you're going to use the fish shell, you
 
 To start using the `.bash_profile` file type the following:
 ```
-stow bash
+stow -t $HOME bash
 ```
 This copies the `.bash_profile` file into your home directory and makes a symlink back to here.
 
 To start using the `.vimrc` file type the following:
 ```
-stow vim
+stow -t $HOME vim
 ```
 This copies the `.vimrc` file into your home directory and makes a symlink back to here.
 
