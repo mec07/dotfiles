@@ -13,14 +13,6 @@ eval "$(ssh-agent -s)"
 ```
 or you can use the `ssh-agent` plugin for zsh.
 
-Add the following to your `~/.ssh/config` file:
-```
-Host *
-  AddKeysToAgent yes
-  UseKeychain yes
-  IdentityFile ~/.ssh/id_rsa
-```
-
 Then add the ssh key to the agent and store the password in keychain (Mac OSX specific):
 ```
 ssh-add -K ~/.ssh/id_rsa
@@ -59,6 +51,16 @@ To start using the `.vimrc` file type the following:
 stow -t $HOME vim
 ```
 This copies the `.vimrc` file into your home directory and makes a symlink back to here.
+
+Copy the ssh config file:
+```
+stow -t $HOME ssh
+```
+
+If you're going to use zsh then:
+```
+stow -t $HOME zsh
+```
 
 And it's the same for the `.inputrc` in the input folder and and `.gitconfig` file in the git folder.
 
@@ -120,6 +122,17 @@ Next you will want to install oh-my-fish
 ```
 curl -L https://get.oh-my.fish | fish
 ```
+
+# Zsh setup
+Install zsh:
+```
+brew install zsh
+```
+Then install oh-my-zsh:
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+There is a nice article about it (it also includes setting up colours in iterm2): https://medium.com/ayuth/iterm2-zsh-oh-my-zsh-the-most-power-full-of-terminal-on-macos-bdb2823fb04c
 
 # Mutt setup
 This took a long time to do and I didn't document it, so this will be an imperfect recollection.
