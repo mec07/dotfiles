@@ -92,6 +92,11 @@ Now open up a vim file and type:
 ```
 It should open a panel and start downloading the plugins.
 
+You will also need to install the go binaries for `vim-go` to work properly:
+```
+:GoInstallBinaries
+```
+
 If you want to use powerline (I have commented it out as I don't use it anymore...):
 You will probably also need to install a font that has the powerline special characters.
 My preferred font is Meslo LG M which I downloaded from

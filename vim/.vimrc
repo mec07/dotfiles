@@ -86,26 +86,38 @@ else
 	" Folding plugins
 	Plug 'tmhedberg/SimpylFold'
 	Plug 'Konfekt/FastFold'
-	"Bundle 'Valloric/YouCompleteMe'
+
+	" autocompletion
+	"Plug 'Valloric/YouCompleteMe'
+
+	" flake8
 	Plug 'nvie/vim-flake8'
+
+	" colour scheme
 	Plug 'jnurmine/Zenburn'
+
+	" file navigation
 	"Plug 'scrooloose/nerdtree'
 	"Plug 'jistr/vim-nerdtree-tabs'
-	Plug 'francoiscabrol/ranger.vim'
+	"Plug 'francoiscabrol/ranger.vim'
+
 	" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 	" Fuzzy file finder
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	" Search repo from within vim
 	Plug 'mileszs/ack.vim'
 
-	" Vue js syntax
-	Plug 'posva/vim-vue'
+
+	" javascript
+	"Plug 'posva/vim-vue'
+	"Plug 'pangloss/vim-javascript'
+	"Plug 'mxw/vim-jsx'
 
 	" projectionist
 	Plug 'tpope/vim-projectionist'
 	" surround
 	Plug 'tpope/vim-surround'
-	" fugitive
+	" fugitive (git wrapper)
 	Plug 'tpope/vim-fugitive'
 
 	" vim-go
@@ -114,18 +126,14 @@ else
 	" python formatting with black
 	Plug 'ambv/black'
 
-    " javascript
-    Plug 'pangloss/vim-javascript'
-    Plug 'mxw/vim-jsx'
+	" snippets
+	Plug 'https://github.com/SirVer/ultisnips'
 
-    " snippets
-    Plug 'https://github.com/SirVer/ultisnips'
+	" multiple cursors! :)
+	Plug 'terryma/vim-multiple-cursors'
 
-    " multiple cursors! :)
-    Plug 'terryma/vim-multiple-cursors'
-
-    " vim-fish
-    Plug 'dag/vim-fish'
+	" vim-fish
+	"Plug 'dag/vim-fish'
 
 	" All of your Plugs must be added before the following line
 	call plug#end()            " required

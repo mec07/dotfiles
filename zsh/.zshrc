@@ -8,6 +8,7 @@ export ZSH="/Users/marc/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="af-magic"
 ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
@@ -67,6 +68,7 @@ plugins=(
   git
   gh
   ssh-agent
+  virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -77,6 +79,9 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+export GOPATH="/Users/marc"
+export PATH=$GOPATH/bin:$PATH
+export GO111MODULE="on"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -127,3 +132,4 @@ function gbranchls() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(direnv hook zsh)"
