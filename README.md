@@ -52,6 +52,13 @@ stow -t $HOME vim
 ```
 This copies the `.vimrc` file into your home directory and makes a symlink back to here.
 
+Annoyingly for the snippets we have to do a couple of extra steps:
+```
+cd vim
+stow -t $HOME/.vim
+cd ..
+```
+
 Copy the ssh config file:
 ```
 stow -t $HOME ssh

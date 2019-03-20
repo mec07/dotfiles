@@ -1,7 +1,7 @@
 if &diff
 else
-    " disable cursoline as it can slow vim down a lot -- I can turn it on
-    " later if I want
+	" disable cursoline as it can slow vim down a lot -- I can turn it on
+	" later if I want
 	" set cursorline
 	set clipboard=unnamed
 
@@ -134,6 +134,9 @@ else
 
 	" vim-fish
 	"Plug 'dag/vim-fish'
+	"
+	" Easymotion
+	Plug 'easymotion/vim-easymotion'
 
 	" All of your Plugs must be added before the following line
 	call plug#end()            " required
@@ -182,8 +185,8 @@ else
 	"let g:ale_linters = {'go': ['gometalinter']}
 	" speed up for files with lots of errors:
 	let g:ale_echo_delay = 100
-  let g:ale_fixers = {'javascript': ['prettier'], 'css': ['prettier']}
-  let g:ale_fix_on_save = 1
+	let g:ale_fixers = {'javascript': ['prettier'], 'css': ['prettier']}
+	let g:ale_fix_on_save = 1
 	command AT ALEToggle
 
 
@@ -194,12 +197,17 @@ else
 	" Snippets customisation
 	let g:UltiSnipsUsePythonVersion = 3
 	"let g:UltiSnippetsDir="~/.vim/snips"
-	"let g:UltiSnipsSnippetDirectories=["snips"]
-    let g:UltiSnipsListSnippets = '<C-l>'
-    "let g:UltiSnipsExpandTrigger="<c-j>"
+	let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
+	let g:UltiSnipsListSnippets = '<C-l>'
+	"let g:UltiSnipsExpandTrigger="<c-j>"
 
 	" shorten the ranger new tab command
 	command RNT RangerNewTab
+
+	" easymotion config
+	" map s <Plug>(easymotion-s)
+	" map f <Plug>(easymotion)
+	map , <leader><leader>
 
     " vim multiple cursors
     "let g:multi_cursor_select_all_word_key = '<C-a>'
