@@ -20,3 +20,5 @@ email = gloriphobia@gmail.com
 	insteadOf = https://github.com/shellagilehub/
 [http]
 	cookiefile = /Users/mcoury/.gitcookies
+[core]
+	excludesfile = /Users/marc/.gitignore_global
