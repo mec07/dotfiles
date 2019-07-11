@@ -3,3 +3,24 @@ if err != nil {
 	${0}
 }
 endsnippet
+
+snippet ifer "if err := expression...; err != nil..." b
+if err := ${1}; err != nil {
+	${2}
+	return err
+}
+endsnippet
+
+snippet { "table struct" b
+{
+	${1}: ${2},
+},
+endsnippet
+
+snippet fortab "for _, test := range table..." b
+for _, test := range table {
+	t.Run(test.name, func(t *testing.T) {
+		${1}
+	})
+}
+endsnippet

@@ -107,12 +107,6 @@ else
 	" Search repo from within vim
 	Plug 'mileszs/ack.vim'
 
-
-	" javascript
-	"Plug 'posva/vim-vue'
-	"Plug 'pangloss/vim-javascript'
-	"Plug 'mxw/vim-jsx'
-
 	" projectionist
 	Plug 'tpope/vim-projectionist'
 	" surround
@@ -120,8 +114,15 @@ else
 	" fugitive (git wrapper)
 	Plug 'tpope/vim-fugitive'
 
-	" vim-go
+	" language syntax
 	Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+	Plug 'elixir-editors/vim-elixir'
+	"Plug 'dag/vim-fish'
+
+	" javascript specific language syntax
+	"Plug 'posva/vim-vue'
+	"Plug 'pangloss/vim-javascript'
+	"Plug 'mxw/vim-jsx'
 
 	" python formatting with black
 	Plug 'ambv/black'
@@ -132,11 +133,11 @@ else
 	" multiple cursors! :)
 	Plug 'terryma/vim-multiple-cursors'
 
-	" vim-fish
-	"Plug 'dag/vim-fish'
-	"
 	" Easymotion
 	Plug 'easymotion/vim-easymotion'
+
+	" graphql syntax highlighting
+	Plug 'jparise/vim-graphql'
 
 	" All of your Plugs must be added before the following line
 	call plug#end()            " required

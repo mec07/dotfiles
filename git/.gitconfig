@@ -16,7 +16,7 @@ email = gloriphobia@gmail.com
 	prompt = false
 [alias]
 	d = difftool
-#[url "git@github.com:"]
-#	insteadOf = https://github.com/
+[url "git@github.com:shellagilehub/"]
+	insteadOf = https://github.com/shellagilehub/
 [http]
 	cookiefile = /Users/mcoury/.gitcookies

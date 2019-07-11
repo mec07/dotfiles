@@ -69,6 +69,7 @@ plugins=(
   gh
   ssh-agent
   virtualenv
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -111,6 +112,7 @@ export GO111MODULE="on"
 alias gstat='git status'
 alias gadd='git add -u'
 alias gco='git checkout'
+alias gcom='git commit -m'
 alias gpush='git push'
 alias glog='git log'
 alias gfetch='git fetch --all'
@@ -125,11 +127,22 @@ function gupstream() {
 }
 function gbranchls() {
 	if (( $# == 0 )) then
-		git branch --sort=-committerdate
+		git branch --sort=-committerdate | head -n 10
 	else
 		git branch --sort=-committerdate | head -n $1
 	fi
 }
+
+############################
+# kubectl aliases
+############################
+export COC_DEV_CONFIG="/Users/marc/src/github.com/shellagilehub/secrets/environments/azure/westeurope/dev/01/coconutconfig"
+export COC_TEST_CONFIG="/Users/marc/src/github.com/shellagilehub/secrets/environments/azure/westeurope/test/01/coconutconfig"
+export COC_PROD_CONFIG="/Users/marc/src/github.com/shellagilehub/secrets/environments/azure/westeurope/prod/01/coconutconfig"
+alias kd='kubectl --kubeconfig=$COC_DEV_CONFIG'
+alias kt='kubectl --kubeconfig=$COC_TEST_CONFIG'
+alias kp='kubectl --kubeconfig=$COC_PROD_CONFIG'
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
