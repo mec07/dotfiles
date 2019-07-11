@@ -69,7 +69,11 @@ If you're going to use zsh then:
 stow -t $HOME zsh
 ```
 
-And it's the same for the `.inputrc` in the input folder and and `.gitconfig` file in the git folder.
+And it's the same for the input and git folders:
+```
+stow -t $HOME input
+stow -t $HOME git
+```
 
 # Vim setup
 There is a lot of customisation. A lot of it comes from a good tutorial on setting up your vim environment for coding:
