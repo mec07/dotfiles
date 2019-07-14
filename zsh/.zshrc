@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/marc/.oh-my-zsh"
+export ZSH="/home/marccoury/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -80,8 +80,7 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-export GOPATH="/Users/marc"
-export PATH=$GOPATH/bin:$PATH
+export GOPATH="$HOME"
 export GO111MODULE="on"
 
 # Preferred editor for local and remote sessions
@@ -136,13 +135,19 @@ function gbranchls() {
 ############################
 # kubectl aliases
 ############################
-export COC_DEV_CONFIG="/Users/marc/src/github.com/shellagilehub/secrets/environments/azure/westeurope/dev/01/coconutconfig"
-export COC_TEST_CONFIG="/Users/marc/src/github.com/shellagilehub/secrets/environments/azure/westeurope/test/01/coconutconfig"
-export COC_PROD_CONFIG="/Users/marc/src/github.com/shellagilehub/secrets/environments/azure/westeurope/prod/01/coconutconfig"
+export COC_DEV_CONFIG= "/home/marccoury/src/github.com/shellagilehub/secrets/environments/azure/westeurope/dev/01/coconutconfig"
+export COC_TEST_CONFIG="/home/marccoury/src/github.com/shellagilehub/secrets/environments/azure/westeurope/test/01/coconutconfig"
+export COC_PROD_CONFIG="/home/marccoury/src/github.com/shellagilehub/secrets/environments/azure/westeurope/prod/01/coconutconfig"
 alias kd='kubectl --kubeconfig=$COC_DEV_CONFIG'
 alias kt='kubectl --kubeconfig=$COC_TEST_CONFIG'
 alias kp='kubectl --kubeconfig=$COC_PROD_CONFIG'
 
-
+############################
+# FZF
+############################
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+############################
+# direnv
+############################
 eval "$(direnv hook zsh)"

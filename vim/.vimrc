@@ -72,76 +72,76 @@ else
 	" To install the plugins, open vim and type :PlugInstall
 	"""""""""""""""""""""""""
 
-	set nocompatible              " required
-	filetype off                  " required
+	"set nocompatible              " required
+	"filetype off                  " required
 
-	call plug#begin('~/.vim/plugged')
+	"call plug#begin('~/.vim/plugged')
 
-	" let Vundle manage Vundle, required
-	Plug 'gmarik/Vundle.vim'
+	"" let Vundle manage Vundle, required
+	"Plug 'gmarik/Vundle.vim'
 
-	" replacement for syntastic
-	Plug 'w0rp/ale'
+	"" replacement for syntastic
+	"Plug 'w0rp/ale'
 
-	" Folding plugins
-	Plug 'tmhedberg/SimpylFold'
-	Plug 'Konfekt/FastFold'
+	"" Folding plugins
+	"Plug 'tmhedberg/SimpylFold'
+	"Plug 'Konfekt/FastFold'
 
-	" autocompletion
-	"Plug 'Valloric/YouCompleteMe'
+	"" autocompletion
+	""Plug 'Valloric/YouCompleteMe'
 
-	" flake8
-	Plug 'nvie/vim-flake8'
+	"" flake8
+	"Plug 'nvie/vim-flake8'
 
-	" colour scheme
-	Plug 'jnurmine/Zenburn'
+	"" colour scheme
+	"Plug 'jnurmine/Zenburn'
 
-	" file navigation
-	"Plug 'scrooloose/nerdtree'
-	"Plug 'jistr/vim-nerdtree-tabs'
-	"Plug 'francoiscabrol/ranger.vim'
+	"" file navigation
+	""Plug 'scrooloose/nerdtree'
+	""Plug 'jistr/vim-nerdtree-tabs'
+	""Plug 'francoiscabrol/ranger.vim'
 
-	" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-	" Fuzzy file finder
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	" Search repo from within vim
-	Plug 'mileszs/ack.vim'
+	"" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+	"" Fuzzy file finder
+	"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	"" Search repo from within vim
+	"Plug 'mileszs/ack.vim'
 
-	" projectionist
-	Plug 'tpope/vim-projectionist'
-	" surround
-	Plug 'tpope/vim-surround'
-	" fugitive (git wrapper)
-	Plug 'tpope/vim-fugitive'
+	"" projectionist
+	"Plug 'tpope/vim-projectionist'
+	"" surround
+	"Plug 'tpope/vim-surround'
+	"" fugitive (git wrapper)
+	"Plug 'tpope/vim-fugitive'
 
-	" language syntax
-	Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
-	Plug 'elixir-editors/vim-elixir'
-	"Plug 'dag/vim-fish'
+	"" language syntax
+	"Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+	"Plug 'elixir-editors/vim-elixir'
+	""Plug 'dag/vim-fish'
 
-	" javascript specific language syntax
-	"Plug 'posva/vim-vue'
-	"Plug 'pangloss/vim-javascript'
-	"Plug 'mxw/vim-jsx'
+	"" javascript specific language syntax
+	""Plug 'posva/vim-vue'
+	""Plug 'pangloss/vim-javascript'
+	""Plug 'mxw/vim-jsx'
 
-	" python formatting with black
-	Plug 'ambv/black'
+	"" python formatting with black
+	"Plug 'ambv/black'
 
-	" snippets
-	Plug 'https://github.com/SirVer/ultisnips'
+	"" snippets
+	"Plug 'https://github.com/SirVer/ultisnips'
 
-	" multiple cursors! :)
-	Plug 'terryma/vim-multiple-cursors'
+	"" multiple cursors! :)
+	"Plug 'terryma/vim-multiple-cursors'
 
-	" Easymotion
-	Plug 'easymotion/vim-easymotion'
+	"" Easymotion
+	"Plug 'easymotion/vim-easymotion'
 
-	" graphql syntax highlighting
-	Plug 'jparise/vim-graphql'
+	"" graphql syntax highlighting
+	"Plug 'jparise/vim-graphql'
 
-	" All of your Plugs must be added before the following line
-	call plug#end()            " required
-	filetype plugin indent on    " required
+	"" All of your Plugs must be added before the following line
+	"call plug#end()            " required
+	"filetype plugin indent on    " required
 
 	"""""""""""""""""""""""""
 	" Vundle over

@@ -17,34 +17,53 @@ Then add the ssh key to the agent and store the password in keychain (Mac OSX sp
 ```
 ssh-add -K ~/.ssh/id_rsa
 ```
+Add the ssh key to github.com.
 
-Install homebrew:
+Install homebrew (Mac OSX specific):
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Setup gh tool:
-https://github.com/jdxcode/gh
+Install Nix (Linux specific):
+```
+curl https://nixos.org/nix/install | sh
+```
+Note: I should probably move away from dotfiles to something more like: https://github.com/nmattia/homies
+(see article: https://www.nmattia.com/posts/2018-03-21-nix-reproducible-setup-linux-macos.html)
+
 
 
 # Requirements
-You need to use stow. I think it usually comes with Linux but it doesn't come with Mac OSX, so install it with:
+You need to use stow. Install it with:
 ```
 brew install stow
 ```
+or
+```
+nix-env -i stow
+```
 
 # Setup
+Clone the dotfiles repo:
+```
+mkdir -p ~/src/github.com/mec07
+cd ~/src/github.com/mec07
+git clone git@github.com:mec07/dotfiles.git
+cd dotfiles
+```
+
 To use these dotfiles, make a backup of your current dotfiles, e.g.
 ```
 mv ~/.bash_profile ~/.bash_profile_old
+mv ~/.bashrc ~/.bashrc_old
 ```
-then cd into this git repo. Note that if you're going to use the fish shell, you don't really care about the `.bash_profile` anymore.
+Note that if you're going to use the fish/zsh shell, you don't really care about the `.bash_profile` anymore.
 
-To start using the `.bash_profile` file type the following:
+To start using the `.bash_profile` & `.bashrc` files type the following:
 ```
 stow -t $HOME bash
 ```
-This copies the `.bash_profile` file into your home directory and makes a symlink back to here.
+This copies the `.bash_profile` & `.bashrc` files into your home directory and makes a symlink back to here.
 
 To start using the `.vimrc` file type the following:
 ```
@@ -52,7 +71,7 @@ stow -t $HOME vim
 ```
 This copies the `.vimrc` file into your home directory and makes a symlink back to here.
 
-Annoyingly for the snippets we have to do a couple of extra steps:
+Annoyingly for the snippets we have to do a couple of extra steps (although on linux I didn't have to do this...):
 ```
 cd vim
 stow -t $HOME/.vim
@@ -73,6 +92,7 @@ And it's the same for the input and git folders:
 ```
 stow -t $HOME input
 stow -t $HOME git
+stow -t $HOME nix
 ```
 
 # Vim setup
@@ -83,6 +103,10 @@ To make the vim setup work as I have follow these instructions.
 Make sure you update your vim to version 8:
 ```
 brew install macvim --with-override-system-vim
+```
+or
+```
+nix-env -i vim
 ```
 Then close your terminal and reopen it and verify that it is indeed version 8 or greater with the command
 ```
@@ -149,6 +173,28 @@ Then install oh-my-zsh:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 There is a nice article about it (it also includes setting up colours in iterm2): https://medium.com/ayuth/iterm2-zsh-oh-my-zsh-the-most-power-full-of-terminal-on-macos-bdb2823fb04c
+
+# gh tool
+
+Setup gh tool:
+https://github.com/jdxcode/gh
+```
+mkdir -p ~/src/github.com/jdxcode
+cd ~/src/github.com/jdxcode
+git clone git@github.com:jdxcode/gh.git
+```
+To install in zsh (with oh-my-zsh):
+```
+ln -s ~/src/github.com/jdxcode/gh/zsh/gh ~/.oh-my-zsh/custom/plugins/gh
+ln -s ~/src/github.com/jdxcode/gh/zsh/bb ~/.oh-my-zsh/custom/plugins/bb
+```
+or, for fish shell:
+```
+ln -s ~/src/github.com/jdxcode/gh/functions/gh.fish ~/.config/fish/functions/gh.fish
+ln -s ~/src/github.com/jdxcode/gh/completions/gh.fish ~/.config/fish/completions/gh.fish
+```
+
+
 
 # Mutt setup
 This took a long time to do and I didn't document it, so this will be an imperfect recollection.
