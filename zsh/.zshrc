@@ -143,6 +143,12 @@ alias kt='kubectl --kubeconfig=$COC_TEST_CONFIG'
 alias kp='kubectl --kubeconfig=$COC_PROD_CONFIG'
 
 ############################
+# copy & paste
+############################
+alias pbcopy="xclip -sel clip"
+alias pbpaste='xclip -selection clipboard -o'
+
+############################
 # FZF
 ############################
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
