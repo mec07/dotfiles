@@ -144,6 +144,10 @@ You'll also want to install FZF as a commandline utility too:
 brew install fzf
 ```
 
+Note: you can format your comment blocks (or code) with `gqq` for 1 line,
+`gq2j` for 2 lines, etc. or just highlight the lines to format (in visual mode)
+and do: `gq`.
+
 # Fish setup
 Install the fish and omf directories underneath `~/.config`, so create it if necessary:
 ```
