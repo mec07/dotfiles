@@ -1,27 +1,10 @@
 {
   packageOverrides = pkgs: with pkgs; {
-    myVim = vim_configurable.override { python = python3; };
-    vimrcConfig.plug.plugins = with pkgs.vimPlugins; [
-
-      SimpylFold
-      FastFold
-      vim-flake8
-      black
-      Zenburn
-      fzf
-      ack.vim
-      vim-fugitive
-      vim-surround
-      ale
-      vim-projectionist
-      vim-go
-      vim-elixir
-      vim-easymotion
-      vim-ultisnips
-      vim-graphql
-      vim-multiple-cursors
-      vim-nix
-
-    ];
+    my_vim = vim_configurable.customize {
+      name = "my_vim";
+      vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
+        start = [vim-flake8 vim-go vim-elixir vim-nix vim-fugitive vim-surround fzf vim-projectionist vim-easymotion vim-multiple-cursors];
+      };
+    };
   };
 }
