@@ -95,6 +95,36 @@ stow -t $HOME git
 stow -t $HOME nix
 ```
 
+# Fish setup
+Install the fish and omf directories underneath `~/.config`, so create it if necessary:
+```
+mkdir -p ~/.config
+```
+and then run stow
+```
+stow config -t ~/.config/
+```
+
+You need to install fish. You can do so with brew:
+```
+brew install fish
+```
+Next you will want to install oh-my-fish
+```
+curl -L https://get.oh-my.fish | fish
+```
+
+# Zsh setup
+Install zsh:
+```
+brew install zsh
+```
+Then install oh-my-zsh:
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+There is a nice article about it (it also includes setting up colours in iterm2): https://medium.com/ayuth/iterm2-zsh-oh-my-zsh-the-most-power-full-of-terminal-on-macos-bdb2823fb04c
+
 # Vim setup
 There is a lot of customisation. A lot of it comes from a good tutorial on setting up your vim environment for coding:
 https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
@@ -102,7 +132,7 @@ https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 To make the vim setup work as I have follow these instructions.
 Make sure you update your vim to version 8:
 ```
-brew install macvim --with-override-system-vim
+brew install vim
 ```
 or
 ```
@@ -148,36 +178,6 @@ Note: you can format your comment blocks (or code) with `gqq` for 1 line,
 `gq2j` for 2 lines, etc. or just highlight the lines to format (in visual mode)
 and do: `gq`.
 
-# Fish setup
-Install the fish and omf directories underneath `~/.config`, so create it if necessary:
-```
-mkdir -p ~/.config
-```
-and then run stow
-```
-stow config -t ~/.config/
-```
-
-You need to install fish. You can do so with brew:
-```
-brew install fish
-```
-Next you will want to install oh-my-fish
-```
-curl -L https://get.oh-my.fish | fish
-```
-
-# Zsh setup
-Install zsh:
-```
-brew install zsh
-```
-Then install oh-my-zsh:
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-There is a nice article about it (it also includes setting up colours in iterm2): https://medium.com/ayuth/iterm2-zsh-oh-my-zsh-the-most-power-full-of-terminal-on-macos-bdb2823fb04c
-
 # gh tool
 
 Setup gh tool:
@@ -192,7 +192,12 @@ To install in zsh (with oh-my-zsh):
 ln -s ~/src/github.com/jdxcode/gh/zsh/gh ~/.oh-my-zsh/custom/plugins/gh
 ln -s ~/src/github.com/jdxcode/gh/zsh/bb ~/.oh-my-zsh/custom/plugins/bb
 ```
-or, for fish shell:
+You may have to refresh the zsh autocompletions dumpfile:
+```
+rm $HOME/.zcompdump-*
+```
+
+For fish shell:
 ```
 ln -s ~/src/github.com/jdxcode/gh/functions/gh.fish ~/.config/fish/functions/gh.fish
 ln -s ~/src/github.com/jdxcode/gh/completions/gh.fish ~/.config/fish/completions/gh.fish
