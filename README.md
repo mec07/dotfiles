@@ -1,7 +1,7 @@
 # dotfiles
 Dotfile management
 
-# Setting up a new laptop
+### Setting up a new laptop
 Generate a new ssh key (set a password):
 ```
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -33,7 +33,7 @@ Note: I should probably move away from dotfiles to something more like: https://
 
 
 
-# Requirements
+### Requirements
 You need to use stow. Install it with:
 ```
 brew install stow
@@ -43,7 +43,7 @@ or
 nix-env -i stow
 ```
 
-# Setup
+### Setup
 Clone the dotfiles repo:
 ```
 mkdir -p ~/src/github.com/mec07
@@ -95,7 +95,11 @@ stow -t $HOME git
 stow -t $HOME nix
 ```
 
-# Fish setup
+### Git
+Annoyingly you will have to manually update the home directories mentioned in the `.gitconfig` file to match the home directory of the laptop you're using.
+Don't forget to add your new public ssh key to github.com.
+
+### Fish setup
 Install the fish and omf directories underneath `~/.config`, so create it if necessary:
 ```
 mkdir -p ~/.config
@@ -114,7 +118,7 @@ Next you will want to install oh-my-fish
 curl -L https://get.oh-my.fish | fish
 ```
 
-# Zsh setup
+### Zsh setup
 Install zsh:
 ```
 brew install zsh
@@ -125,7 +129,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```
 There is a nice article about it (it also includes setting up colours in iterm2): https://medium.com/ayuth/iterm2-zsh-oh-my-zsh-the-most-power-full-of-terminal-on-macos-bdb2823fb04c
 
-# Vim setup
+### Vim setup
 There is a lot of customisation. A lot of it comes from a good tutorial on setting up your vim environment for coding:
 https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 
@@ -178,7 +182,7 @@ Note: you can format your comment blocks (or code) with `gqq` for 1 line,
 `gq2j` for 2 lines, etc. or just highlight the lines to format (in visual mode)
 and do: `gq`.
 
-# gh tool
+### gh tool
 
 Setup gh tool:
 https://github.com/jdxcode/gh
@@ -204,8 +208,8 @@ ln -s ~/src/github.com/jdxcode/gh/completions/gh.fish ~/.config/fish/completions
 ```
 
 
+### Mutt setup
 
-# Mutt setup
 This took a long time to do and I didn't document it, so this will be an imperfect recollection.
 Here are some packages to install:
 ```
@@ -234,7 +238,7 @@ offlineimap
 ```
 
 
-# Usage
+### Usage
 Now you can edit the `.bash_profile`, `.vimrc`, `.inputrc` and `.gitconfig` files directly in your home
 directory and they will get updated in the git repo.
 Once you've made a few changes you can then send them back to github.

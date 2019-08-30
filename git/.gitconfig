@@ -19,6 +19,6 @@ email = gloriphobia@gmail.com
 [url "git@github.com:shellagilehub/"]
 	insteadOf = https://github.com/shellagilehub/
 [http]
-	cookiefile = /Users/mcoury/.gitcookies
+	cookiefile = /Users/marccoury/.gitcookies
 [core]
-	excludesfile = /Users/marc/.gitignore_global
+	excludesfile = /Users/marccoury/.gitignore_global
