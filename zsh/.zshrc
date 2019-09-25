@@ -142,6 +142,7 @@ function gbranchls() {
 #alias kd='kubectl --kubeconfig=$COC_DEV_CONFIG'
 #alias kt='kubectl --kubeconfig=$COC_TEST_CONFIG'
 #alias kp='kubectl --kubeconfig=$COC_PROD_CONFIG'
+alias k='kubectl'
 
 ############################
 # copy & paste
@@ -158,3 +159,22 @@ alias pbpaste='xclip -selection clipboard -o'
 # direnv
 ############################
 eval "$(direnv hook zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/marccoury/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/marccoury/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/marccoury/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/marccoury/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+############################
+# handy timestamp commands
+############################
+alias epoch="date +%s"
+alias epochms="date +%s000"
+ts () {
+    date -u -r $((${1:?}))
+}
+tsms () {
+    date -u -r $((${1:?}/1000))
+}

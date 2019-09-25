@@ -1,5 +1,8 @@
 # vim swp files
 *.swp
 
+# coverage files
+cover.out
+
 # envrc files
 .envrc
