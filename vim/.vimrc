@@ -139,6 +139,9 @@ else
 	" graphql syntax highlighting
 	Plug 'jparise/vim-graphql'
 
+	" Centre column for vim
+	Plug 'mikewest/vimroom'
+
 	" All of your Plugs must be added before the following line
 	call plug#end()            " required
 	filetype plugin indent on    " required
@@ -209,6 +212,13 @@ else
 	" map s <Plug>(easymotion-s)
 	" map f <Plug>(easymotion)
 	map , <leader><leader>
+
+	" vimroom customisations
+	let g:vimroom_background = "black"
+	let g:vimroom_min_sidebar_width = 20
+	let g:vimroom_sidebar_height = 5
+	let g:vimroom_width = 120
+	command VR VimroomToggle
 
     " vim multiple cursors
     "let g:multi_cursor_select_all_word_key = '<C-a>'
