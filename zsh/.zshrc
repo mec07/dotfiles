@@ -83,6 +83,12 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH="$HOME"
 export PATH=$GOPATH/bin:$PATH
 export GO111MODULE="on"
+export PATH=$GOPATH/bin:$PATH
+
+# Add the development version of go to path so that it uses that
+function godev() {
+	export PATH=$HOME/go_dev/go/bin:$PATH
+}
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
