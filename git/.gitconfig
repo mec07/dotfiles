@@ -18,7 +18,10 @@ email = gloriphobia@gmail.com
 	d = difftool
 [url "git@github.com:shellagilehub/"]
 	insteadOf = https://github.com/shellagilehub/
+[url "git@github.com:kaluza-tech/"]
+	insteadOf = https://github.com/kaluza-tech/
 [http]
 	cookiefile = ~/.gitcookies
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = vim
