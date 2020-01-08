@@ -2,7 +2,7 @@ if &diff
 else
 	" disable cursoline as it can slow vim down a lot -- I can turn it on
 	" later if I want
-	" set cursorline
+	set cursorline
 	set clipboard=unnamed
 
 	" lazy redraw should speed up scrolling a little bit
