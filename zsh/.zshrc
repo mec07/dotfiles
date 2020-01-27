@@ -87,10 +87,15 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+#
+############################
+# Go setup
+############################
+# In next laptop setup, remove the GOPATH line (let it default to $HOME/go)
 export GOPATH="$HOME"
 export PATH=$GOPATH/bin:$PATH
 export GO111MODULE="on"
-export PATH=$GOPATH/bin:$PATH
+export GOPRIVATE="github.com/kaluza-tech"
 
 # Add the development version of go to path so that it uses that
 function godev() {

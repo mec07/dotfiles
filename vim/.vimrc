@@ -117,6 +117,7 @@ else
 	" language syntax
 	Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 	Plug 'elixir-editors/vim-elixir'
+	Plug 'stephpy/vim-yaml'
 	"Plug 'dag/vim-fish'
 
 	" javascript specific language syntax
