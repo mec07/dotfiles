@@ -143,6 +143,13 @@ function gbranchname() {
 function gupstream() {
 	git push --set-upstream origin $(gbranchname)
 }
+function gempty() {
+	if (( $# == 0 )) then
+		git commit --allow-empty -m "build"
+	else
+		git commit --allow-empty -m $1
+	fi
+}
 function gbranchls() {
 	if (( $# == 0 )) then
 		git branch --sort=-committerdate | head -n 10
