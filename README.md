@@ -120,11 +120,6 @@ Copy the ssh config file:
 stow -t $HOME ssh
 ```
 
-If you're going to use zsh then:
-```
-stow -t $HOME zsh
-```
-
 And it's the same for the input and git folders:
 ```
 stow -t $HOME input
@@ -133,7 +128,6 @@ stow -t $HOME nix
 ```
 
 ### Git
-Annoyingly you will have to manually update the home directories mentioned in the `.gitconfig` file to match the home directory of the laptop you're using.
 Don't forget to add your new public ssh key to github.com.
 
 ### Fish setup
@@ -163,15 +157,29 @@ ln -s ~/src/github.com/jdxcode/gh/completions/gh.fish ~/.config/fish/completions
 
 
 ### Zsh setup
-Install zsh:
+Install zsh.
+On Mac:
 ```
 brew install zsh
+```
+On Linux:
+```
+nix-env -i zsh
 ```
 Then install oh-my-zsh:
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 There is a nice article about it (it also includes setting up colours in iterm2): https://medium.com/ayuth/iterm2-zsh-oh-my-zsh-the-most-power-full-of-terminal-on-macos-bdb2823fb04c
+
+Remove the default oh-my-zsh file
+```
+rm ~/.zshrc
+```
+and replace it with the dotfiles one:
+```
+stow -t $HOME zsh
+```
 
 To install gh in zsh (with oh-my-zsh):
 ```
