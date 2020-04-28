@@ -13,10 +13,16 @@ eval "$(ssh-agent -s)"
 ```
 or you can use the `ssh-agent` plugin for zsh.
 
-Then add the ssh key to the agent and store the password in keychain (Mac OSX specific):
+Then add the ssh key to the agent.
+On Mac:
 ```
 ssh-add -K ~/.ssh/id_rsa
 ```
+On Linux:
+```
+ssh-add -k ~/.ssh/id_rsa
+```
+
 Add the ssh key to github.com.
 
 Install homebrew (Mac OSX specific):
@@ -24,7 +30,21 @@ Install homebrew (Mac OSX specific):
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Install Nix (Linux specific):
+Install Nix (Linux specific).
+If you're using WSL you have to first do the following:
+```
+mkdir -p /etc/nix/
+cat << EOF > /etc/nix/nix.conf
+# Work around missing cgroups support
+# https://github.com/Microsoft/WSL/issues/994
+sandbox = false
+
+# Work around incorrect file locking
+# https://github.com/Microsoft/WSL/issues/2395
+use-sqlite-wal = false
+EOF
+```
+Then run the installer script:
 ```
 curl https://nixos.org/nix/install | sh
 ```
@@ -43,13 +63,26 @@ or
 nix-env -i stow
 ```
 
+The gh tool, https://github.com/jdxcode/gh:
+```
+mkdir -p ~/src/github.com/jdxcode
+cd ~/src/github.com/jdxcode
+git clone git@github.com:jdxcode/gh.git
+```
+
+Then install it:
+```
+echo 'source ~/src/github.com/jdxcode/gh/bash/gh.bash' >> ~/.bashrc
+echo 'source ~/src/github.com/jdxcode/gh/completions/gh.bash' >> ~/.bashrc
+source ~/.bashrc
+```
+
+
 ### Setup
+
 Clone the dotfiles repo:
 ```
-mkdir -p ~/src/github.com/mec07
-cd ~/src/github.com/mec07
-git clone git@github.com:mec07/dotfiles.git
-cd dotfiles
+gh mec07 dotfiles
 ```
 
 To use these dotfiles, make a backup of your current dotfiles, e.g.
@@ -118,6 +151,13 @@ Next you will want to install oh-my-fish
 curl -L https://get.oh-my.fish | fish
 ```
 
+To install gh for fish shell:
+```
+ln -s ~/src/github.com/jdxcode/gh/functions/gh.fish ~/.config/fish/functions/gh.fish
+ln -s ~/src/github.com/jdxcode/gh/completions/gh.fish ~/.config/fish/completions/gh.fish
+```
+
+
 ### Zsh setup
 Install zsh:
 ```
@@ -128,6 +168,18 @@ Then install oh-my-zsh:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 There is a nice article about it (it also includes setting up colours in iterm2): https://medium.com/ayuth/iterm2-zsh-oh-my-zsh-the-most-power-full-of-terminal-on-macos-bdb2823fb04c
+
+To install gh in zsh (with oh-my-zsh):
+```
+ln -s ~/src/github.com/jdxcode/gh/zsh/gh ~/.oh-my-zsh/custom/plugins/gh
+ln -s ~/src/github.com/jdxcode/gh/zsh/bb ~/.oh-my-zsh/custom/plugins/bb
+```
+You may have to refresh the zsh autocompletions dumpfile:
+```
+rm $HOME/.zcompdump-*
+```
+
+
 
 ### Vim setup
 There is a lot of customisation. A lot of it comes from a good tutorial on setting up your vim environment for coding:
@@ -182,30 +234,7 @@ Note: you can format your comment blocks (or code) with `gqq` for 1 line,
 `gq2j` for 2 lines, etc. or just highlight the lines to format (in visual mode)
 and do: `gq`.
 
-### gh tool
-
-Setup gh tool:
-https://github.com/jdxcode/gh
-```
-mkdir -p ~/src/github.com/jdxcode
-cd ~/src/github.com/jdxcode
-git clone git@github.com:jdxcode/gh.git
-```
-To install in zsh (with oh-my-zsh):
-```
-ln -s ~/src/github.com/jdxcode/gh/zsh/gh ~/.oh-my-zsh/custom/plugins/gh
-ln -s ~/src/github.com/jdxcode/gh/zsh/bb ~/.oh-my-zsh/custom/plugins/bb
-```
-You may have to refresh the zsh autocompletions dumpfile:
-```
-rm $HOME/.zcompdump-*
-```
-
-For fish shell:
-```
-ln -s ~/src/github.com/jdxcode/gh/functions/gh.fish ~/.config/fish/functions/gh.fish
-ln -s ~/src/github.com/jdxcode/gh/completions/gh.fish ~/.config/fish/completions/gh.fish
-```
+Another awesome thing is `cgn`. If you want to change the same thing in multiple places, search for it, type `cgn`, edit it  how you want, then `.` to change subsequent ones (or `n` to see what the subsequent one is followed by `.` to change it).
 
 
 ### Mutt setup
