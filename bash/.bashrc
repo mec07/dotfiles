@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-. /home/marccoury/.nix-profile/etc/profile.d/nix.sh
+. $HOME/.nix-profile/etc/profile.d/nix.sh
 
 exec `which zsh` -l
 

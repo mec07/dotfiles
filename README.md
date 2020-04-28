@@ -70,6 +70,7 @@ nix-env -i stow
 The gh tool, https://github.com/jdxcode/gh:
 ```
 mkdir -p ~/src/github.com/jdxcode
+sudo chmod -R 644 src
 cd ~/src/github.com/jdxcode
 git clone git@github.com:jdxcode/gh.git
 ```
@@ -168,7 +169,7 @@ nix-env -i zsh
 ```
 Then install oh-my-zsh:
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 There is a nice article about it (it also includes setting up colours in iterm2): https://medium.com/ayuth/iterm2-zsh-oh-my-zsh-the-most-power-full-of-terminal-on-macos-bdb2823fb04c
 
