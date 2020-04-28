@@ -226,7 +226,7 @@ Now open up a vim file and type:
 ```
 It should open a panel and start downloading the plugins.
 
-You will also need to install the go binaries for `vim-go` to work properly:
+You will also need to install the go binaries for `vim-go` to work properly (you'll of course need to install go, first, e.g. `nix-env -i go`):
 ```
 :GoInstallBinaries
 ```

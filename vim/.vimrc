@@ -129,7 +129,7 @@ else
 	Plug 'ambv/black'
 
 	" snippets
-	Plug 'https://github.com/SirVer/ultisnips'
+	"Plug 'https://github.com/SirVer/ultisnips'
 
 	" multiple cursors! :)
 	Plug 'terryma/vim-multiple-cursors'
