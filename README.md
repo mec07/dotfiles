@@ -48,6 +48,10 @@ Then run the installer script:
 ```
 curl https://nixos.org/nix/install | sh
 ```
+Then source the profile:
+```
+. ~/.nix-profile/etc/profile.d/nix.sh
+```
 Note: I should probably move away from dotfiles to something more like: https://github.com/nmattia/homies
 (see article: https://www.nmattia.com/posts/2018-03-21-nix-reproducible-setup-linux-macos.html)
 
