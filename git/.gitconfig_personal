@@ -1,0 +1,5 @@
+[user]
+name = Marc Coury
+email = gloriphobia@gmail.com
+[core]
+sshCommand = ssh -i ~/.ssh/id_rsa

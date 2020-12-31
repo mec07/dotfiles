@@ -1,8 +1,4 @@
 # This is Git's per-user configuration file.
-[user]
-# Please adapt and uncomment the following lines:
-name = Marc Coury
-email = gloriphobia@gmail.com
 [pull]
 	rebase = true
 [merge]
@@ -25,3 +21,9 @@ email = gloriphobia@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
+[includeIf "gitdir:~/src/github.com/mec07/"]
+	path=~/.gitconfig_personal
+[includeIf "gitdir:~/src/github.com/godragons/"]
+	path=~/.gitconfig_godragons
+[includeIf "gitdir:~/src/github.com/processout/"]
+	path=~/.gitconfig_checkout.com

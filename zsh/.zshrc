@@ -15,11 +15,11 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 # Set right hand prompt to the time
-RPROMPT='[%D{%F}T%*]'
-TMOUT=1
-TRAPALRM() {
-    zle reset-prompt
-}
+#RPROMPT='[%D{%F}T%*]'
+#TMOUT=1
+#TRAPALRM() {
+#    zle reset-prompt
+#}
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -134,7 +134,7 @@ alias gstat='git status'
 alias gadd='git add -u'
 alias gco='git checkout'
 alias gcom='git commit -m'
-alias gpush='git push'
+alias gpush='make test lint && git push'
 alias glog='git log'
 alias gfetch='git fetch --all'
 alias gpull='git pull --rebase'
