@@ -160,6 +160,7 @@ function gbranchls() {
 		git branch --sort=-committerdate | head -n $1
 	fi
 }
+export GPG_TTY=$(tty)
 
 ############################
 # kubectl aliases

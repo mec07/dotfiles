@@ -125,11 +125,73 @@ And it's the same for the input and git folders:
 ```
 stow -t $HOME input
 stow -t $HOME git
+stow -t $HOME/.gnupg/ gnupg
 stow -t $HOME nix
 ```
 
 ### Git
-Don't forget to add your new public ssh key to github.com.
+Don't forget to add your new public ssh key (https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and GPG key (https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-gpg-key) to github.com.
+If you want to sign your commits then install the programs `gnupg` (make sure it is version 2 or greater) and `pinentry-tty`.
+Check the version of `gpg` with:
+```
+gpg --version
+```
+
+The ID of the gpg key that can be found in the specific gitconfig files (e.g.
+`git/.gitconfig_checkout.com`) has to be updated to match the ID of the new
+GPG key. Get the ID from here:
+```
+gpg --list-secret-keys --keyid-format LONG
+```
+The output should look like:
+```
+sec   rsa4096/<ID of GPG key, i.e. what you want> 2020-12-31 [SC]
+      F05A0_LONG_RANDOM_STUFF_HERE_ETC_5975BEC5D16D
+uid                 [ultimate] Marc Coury <marc.coury@checkout.com>
+ssb   rsa4096/<not really sure what this is for> 2020-12-31 [E]
+```
+
+Also, ensure that the path to the `pinentry-tty` matches the one in the `gnupg/gpg-agent.conf` file, i.e.
+```
+which pinentry-tty
+```
+
+Some commands that were helpful are as follows.
+Set the environment variable (although should be in `.zshrc` or `.bashrc`):
+```
+export GPG_TTY=$(tty)
+```
+Test that you can sign something with `gpg`:
+```
+echo "test" | gpg --clearsign
+```
+Start the `gpg-agent`:
+```
+gpg-agent --daemon
+```
+Kill the `gpg-agent`:
+```
+killall gpg-agent
+```
+Restart the `gpg-agent`:
+```
+gpg-connect-agent reloadagent /bye
+```
+Something to do with tty:
+```
+gpg-connect-agent reloadagent /bye
+```
+To test it out:
+```
+GIT_TRACE=1 git commit -S --allow-empty -m "test with gpg signature"
+```
+If you still have problems you can toggle which pinetry program to use (to be
+honest I don't know if it uses this or if it uses the one specified in
+`gnupg/gpg-agent.conf`):
+```
+sudo update-alternatives --config pinentry
+```
+
 
 ### Fish setup
 Install the fish and omf directories underneath `~/.config`, so create it if necessary:
