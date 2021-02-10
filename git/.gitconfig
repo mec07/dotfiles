@@ -12,6 +12,10 @@
 	prompt = false
 [alias]
 	d = difftool
+#[url "git@github.com:"]
+#	insteadOf = https://github.com/
+[url "git@github.com:processout/"]
+	insteadOf = https://github.com/processout/
 [url "git@github.com:shellagilehub/"]
 	insteadOf = https://github.com/shellagilehub/
 [url "git@github.com:kaluza-tech/"]
@@ -21,9 +25,9 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
-[includeIf "gitdir:~/src/github.com/mec07/"]
+[includeIf "gitdir:mec07/"]
 	path=~/.gitconfig_personal
-[includeIf "gitdir:~/src/github.com/godragons/"]
+[includeIf "gitdir:godragons/"]
 	path=~/.gitconfig_godragons
-[includeIf "gitdir:~/src/github.com/processout/"]
+[includeIf "gitdir:processout/"]
 	path=~/.gitconfig_checkout.com

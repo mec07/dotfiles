@@ -1,8 +1,16 @@
 # source nix
 . $HOME/.nix-profile/etc/profile.d/nix.sh
 
+###########################################
+# Checkout.com specific
+###########################################
+export AWS_VAULT_KEYCHAIN_NAME=login
+export GOPRIVATE="github.com/processout/*"
+source ~/.kube/load_kubeconfigs.sh
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -98,7 +106,6 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH="$HOME"
 export PATH=$GOPATH/bin:$PATH
 export GO111MODULE="on"
-export GOPRIVATE="github.com/kaluza-tech"
 
 # Add the development version of go to path so that it uses that
 function godev() {
@@ -207,3 +214,5 @@ ts () {
 tsms () {
     date -u -r $((${1:?}/1000))
 }
+
+alias resetclock="sudo hwclock -s"
